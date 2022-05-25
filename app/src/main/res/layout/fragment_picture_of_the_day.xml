@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputLayout"
@@ -22,7 +22,8 @@
             app:counterEnabled="true"
             app:counterMaxLength="25"
             app:helperText="@string/wiki_helper_text"
-
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_wikipedia"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -33,17 +34,27 @@
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.example.klindyuk1919materialdesign230522.utils.EquilateralImageView
-            android:id="@+id/imageView"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:contentDescription="@string/photo_of_the_day_stub"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputLayout"
-            app:srcCompat="@drawable/loading" />
+            android:layout_height="match_parent">
+
+            <com.example.klindyuk1919materialdesign230522.utils.EquilateralImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/photo_of_the_day_stub"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayout"
+                app:srcCompat="@drawable/ic_no_photo_vector" />
+
+            <include
+                android:id="@+id/hackBsl"
+                layout="@layout/bottom_sheet_layout" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -68,7 +79,7 @@
         android:layout_height="match_parent"
         android:visibility="gone"
         android:orientation="vertical"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
         <ImageView
             android:layout_width="wrap_content"

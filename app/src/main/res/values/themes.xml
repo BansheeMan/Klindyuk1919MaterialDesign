@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.Klindyuk1919MaterialDesign230522" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
@@ -25,7 +25,7 @@
     </style>
 
     <style name="MyStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">#034AFF</item>
+        <item name="boxStrokeColor">@color/turquoise_600</item>
         <item name="helperTextEnabled">false</item>
         <item name="counterEnabled">false</item>
         <item name="errorTextColor">#034AFF</item>
