@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">Klindyuk1919MaterialDesign(23.05.22)</string>
+    <string name="app_name">Klindyuk1919MaterialDesign</string>
+    <string name="photo_of_the_day_stub">Photo of the day</string>
+    <string name="search_wiki">Найти в Википедии</string>
+    <string name="wiki_helper_text">Поищите термин в википедии</string>
+    <string name="favourite">favourite</string>
+    <string name="settings">settings</string>
+    <string name="search">Search</string>
+    <string name="error">Error</string>
+    <string name="refresh">REFRESH</string>
+    <string name="exit">EXIT</string>
+    <string name="error_nasa_api_key">Проверьте ваш NASA_API_KEY</string>
 </resources>
