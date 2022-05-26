@@ -4,9 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
@@ -15,6 +13,7 @@ import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.FragmentPictureOfTheDayBinding
 import com.example.klindyuk1919materialdesign230522.utils.WIKI_DOMAIN
 import com.example.klindyuk1919materialdesign230522.utils.showSnackBar
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.MainActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class PictureOfTheDayFragment : Fragment() {
@@ -43,30 +42,41 @@ class PictureOfTheDayFragment : Fragment() {
         //TODO уточнить у Андрея; можно ли передавать context по MVVM;
         viewModel.sendRequest(requireContext())
         findWiki()
-        stateBottomSheetL()
+        stateBottomSheetBehavior()
+        setActionBar()
     }
 
-    private fun stateBottomSheetL() {
-        val bottomSheetBehavior = BottomSheetBehavior.from(binding.hackBsl.bottomSheetContainer)
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED //берет стартовую точку от app:behavior_peekHeight в XML
-        bottomSheetBehavior.addBottomSheetCallback( object : BottomSheetBehavior.BottomSheetCallback(){
-            //ЗАКЛАДКИ!!!
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                /*when(newState){
-                    BottomSheetBehavior.STATE_DRAGGING ->{}
-                    BottomSheetBehavior.STATE_COLLAPSED -> {}
-                    BottomSheetBehavior.STATE_EXPANDED -> {}
-                    BottomSheetBehavior.STATE_HALF_EXPANDED -> {}
-                    BottomSheetBehavior.STATE_HIDDEN -> {}
-                    BottomSheetBehavior.STATE_SETTLING -> {}
-                }*/
-            }
-            //ЗАКЛАДКИ!!!
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                //Log.d("@@@","$slideOffset")
-            }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_bottom_bar, menu)
+    }
 
-        })
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.app_bar_fav -> {
+                Log.d("@@@", "app_bar_fav")
+            }
+            R.id.app_bar_settings -> {
+                Log.d("@@@", "app_bar_settings")
+            }
+            android.R.id.home -> {
+                BottomNavigationDrawerFragment.newInstance()
+                    .show(requireActivity().supportFragmentManager, "")
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun setActionBar() {
+        (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
+        setHasOptionsMenu(true)
+    }
+
+    private fun stateBottomSheetBehavior() {
+        val bottomSheetBehavior = BottomSheetBehavior.from(binding.hackBsl.bottomSheetContainer)
+        bottomSheetBehavior.state =
+            BottomSheetBehavior.STATE_COLLAPSED //берет стартовую точку от app:behavior_peekHeight в XML
     }
 
     private fun findWiki() {

@@ -4,5 +4,6 @@
     <dimen name="size_error_description">40sp</dimen>
     <dimen name="size_text_bsm_title">30sp</dimen>
     <dimen name="size_text_bsl_explanation">20sp</dimen>
-    <dimen name="size_behavior_peek_height">135dp</dimen>
+    <dimen name="size_behavior_peek_height">163dp</dimen>
+    <dimen name="size_margin_bottom_navigation">8dp</dimen>
 </resources>

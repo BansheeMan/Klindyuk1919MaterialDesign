@@ -10,4 +10,7 @@
     <string name="refresh">REFRESH</string>
     <string name="exit">EXIT</string>
     <string name="error_nasa_api_key">Проверьте ваш NASA_API_KEY</string>
+    <string name="screen_one">Screen One</string>
+    <string name="screen_two">Screen Two</string>
+    <string name="description_fab">description_fab</string>
 </resources>

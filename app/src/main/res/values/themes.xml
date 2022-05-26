@@ -1,9 +1,9 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.Klindyuk1919MaterialDesign230522" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Klindyuk1919MaterialDesign230522" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="android:navigationBarColor">@color/turquoise_500</item>
-        <item name="colorPrimary">@color/turquoise_600</item>
+        <item name="android:navigationBarColor">@color/turquoise_900</item>
+        <item name="colorPrimary">@color/turquoise_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorPrimaryContainer">@color/turquoise_100</item>
         <item name="colorOnPrimaryContainer">@color/turquoise_900</item>
@@ -19,9 +19,14 @@
         <item name="android:textColor">@color/turquoise_900</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >@color/turquoise_800</item>
+        <item name="android:statusBarColor" >@color/turquoise_600</item>
         <!-- Customize your theme here. -->
         <item name="textInputStyle">@style/MyStyle</item>
+        <item name="floatingActionButtonStyle">@style/MyStyleFloatingActionButton</item>
+    </style>
+
+    <style name="MyStyleFloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="tint">@color/turquoise_600</item>
     </style>
 
     <style name="MyStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
