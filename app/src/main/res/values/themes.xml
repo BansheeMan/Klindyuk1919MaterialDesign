@@ -23,6 +23,7 @@
         <!-- Customize your theme here. -->
         <item name="textInputStyle">@style/MyStyle</item>
         <item name="floatingActionButtonStyle">@style/MyStyleFloatingActionButton</item>
+        <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Choice</item>
     </style>
 
     <style name="MyStyleFloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">

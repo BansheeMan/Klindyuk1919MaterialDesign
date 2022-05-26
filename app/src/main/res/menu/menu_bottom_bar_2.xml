@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/app_bar_send"
+        android:icon="@drawable/ic_send_white"
+        android:title="@string/send"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/app_bar_content_paste"
+        android:icon="@drawable/ic_content_paste"
+        android:title="@string/paste"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/app_bar_clear"
+        android:icon="@drawable/ic_clear"
+        android:title="@string/clear"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/app_bar_archive"
+        android:icon="@drawable/ic_archive_white"
+        android:title="@string/archive"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/app_bar_coronavirus"
+        android:icon="@drawable/ic_coronavirus"
+        android:title="@string/archive"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/app_bar_downhill_skiing"
+        android:icon="@drawable/ic_downhill_skiing"
+        android:title="@string/downhill_skiing"
+        app:showAsAction="always" />
+
+</menu>

@@ -13,4 +13,12 @@
     <string name="screen_one">Screen One</string>
     <string name="screen_two">Screen Two</string>
     <string name="description_fab">description_fab</string>
+    <string name="archive">archive</string>
+    <string name="paste">paste</string>
+    <string name="send">send</string>
+    <string name="clear">clear</string>
+    <string name="downhill_skiing">downhill skiing</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="two_days_ago">Two Days Ago</string>
 </resources>

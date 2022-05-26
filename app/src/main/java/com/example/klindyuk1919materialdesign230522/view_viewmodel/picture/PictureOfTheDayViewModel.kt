@@ -8,9 +8,12 @@ import com.example.klindyuk1919materialdesign230522.BuildConfig
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.repo.PictureOfTheDayResponseData
 import com.example.klindyuk1919materialdesign230522.repo.PictureOfTheDayRetrofitImpl
+import com.example.klindyuk1919materialdesign230522.utils.FORMAT_DATE
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class PictureOfTheDayViewModel(
@@ -22,14 +25,22 @@ class PictureOfTheDayViewModel(
         return liveData
     }
 
-    fun sendRequest(context: Context) {
+    fun sendRequest(context: Context, day: Int) { //TODO утончинть про контекст
         liveData.postValue(PictureOfTheDayAppState.Loading(null))
         if (BuildConfig.NASA_API_KEY.isNullOrEmpty()) {
             liveData.postValue(PictureOfTheDayAppState.Error(Exception(context.getString(R.string.error_nasa_api_key))))
         } else {
-            pictureOfTheDayRetrofitImpl.getRetrofit().getPictureOfTheDay(BuildConfig.NASA_API_KEY)
+            pictureOfTheDayRetrofitImpl.getRetrofit()
+                .getPictureOfTheDay(BuildConfig.NASA_API_KEY, getData(day))
                 .enqueue(callback)
         }
+    }
+
+    private fun getData(day: Int): String {
+        val calendar = Calendar.getInstance()
+        calendar.add(Calendar.DATE, day)
+        val dateFormat = SimpleDateFormat(FORMAT_DATE, Locale.getDefault())
+        return dateFormat.format(calendar.time)
     }
 
     private val callback = object : Callback<PictureOfTheDayResponseData> {

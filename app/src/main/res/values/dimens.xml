@@ -6,4 +6,5 @@
     <dimen name="size_text_bsl_explanation">20sp</dimen>
     <dimen name="size_behavior_peek_height">163dp</dimen>
     <dimen name="size_margin_bottom_navigation">8dp</dimen>
+    <dimen name="size_margin_chipgroup">90dp</dimen>
 </resources>

@@ -3,3 +3,9 @@ package com.example.klindyuk1919materialdesign230522.utils
 const val NASA_DOMAIN = "https://api.nasa.gov/"
 const val NASA_ENDPOINT = "planetary/apod"
 const val WIKI_DOMAIN = "https://en.wikipedia.org/wiki/"
+const val QUERY_API_KEY = "api_key"
+const val QUERY_DATE = "date"
+const val TODAY = 0
+const val YESTERDAY = -1
+const val TWO_DAYS_AGO = -2
+const val FORMAT_DATE = "yyyy-MM-dd"
