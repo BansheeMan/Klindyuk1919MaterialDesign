@@ -5,10 +5,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import coil.size.Scale
 import coil.transform.CircleCropTransformation
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.FragmentPictureOfTheDayBinding
@@ -40,11 +42,10 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getLiveData().observe(viewLifecycleOwner) {
+       viewModel.getLiveData().observe(viewLifecycleOwner) {
             renderData(it)
         }
-        //TODO уточнить у Андрея; можно ли передавать context по MVVM;
-        viewModel.sendRequest(requireContext(), TODAY)
+        viewModel.sendRequest(TODAY)
         findWiki()
         stateBottomSheetBehavior()
         setActionBar()
@@ -55,11 +56,11 @@ class PictureOfTheDayFragment : Fragment() {
     private fun switchChipGroup() {
         binding.chipGroup.setOnCheckedChangeListener { group, position ->
              when(position){
-                1->{viewModel.sendRequest(requireContext(),TODAY)}
-                2->{viewModel.sendRequest(requireContext(), YESTERDAY)}
-                3->{viewModel.sendRequest(requireContext(), TWO_DAYS_AGO)}
+                1->{viewModel.sendRequest(TODAY)}
+                2->{viewModel.sendRequest(YESTERDAY)}
+                3->{viewModel.sendRequest(TWO_DAYS_AGO)}
             }
-            group.findViewById<Chip>(position)?.let{
+            group.findViewById<Chip>(position)?.let{ //для себя
                 Log.d("@@@", "${it.text} $position")
             }
         }
@@ -160,34 +161,32 @@ class PictureOfTheDayFragment : Fragment() {
             is PictureOfTheDayAppState.Error -> {
                 with(binding) {
                     val trouble = appState.error.message
-                    loadingView.visibility = View.GONE
                     successView.visibility = View.GONE
-                    errorView.visibility = View.VISIBLE
-                    errorView.showSnackBar(trouble, R.string.exit) {
+                    error.errorView.visibility = View.VISIBLE
+                    error.errorView.showSnackBar(trouble, R.string.exit) {
                         requireActivity().finish()
                     }
                 }
             }
             is PictureOfTheDayAppState.Loading -> {
                 with(binding) {
-                    errorView.visibility = View.GONE
-                    successView.visibility = View.GONE
-                    loadingView.visibility = View.VISIBLE
+                    imageView.scaleType = ImageView.ScaleType.CENTER
+                    imageView.load(R.drawable.progress_animation)
                 }
             }
             is PictureOfTheDayAppState.Success -> {
                 with(binding) {
-                    errorView.visibility = View.GONE
-                    loadingView.visibility = View.GONE
+                    error.errorView.visibility = View.GONE
                     successView.visibility = View.VISIBLE
+                    imageView.scaleType = ImageView.ScaleType.FIT_CENTER
                     imageView.load(appState.pictureOfTheDayResponseData.url) {
-                        placeholder(R.drawable.welcome)   //TODO взависимости от картинки placeholder меняет выводимый размер основной картинки
+                        placeholder(R.drawable.hello)
                         transformations(CircleCropTransformation())
                         crossfade(2000) //плавный переход, изменение непрозрачности
+                        scale(Scale.FILL) //заполняет картинку на весь ImageView, решает проблему c crossfade()
                     }
                     hackBsl.title.text = appState.pictureOfTheDayResponseData.title
                     hackBsl.explanation.text = appState.pictureOfTheDayResponseData.explanation
-
                 }
             }
         }

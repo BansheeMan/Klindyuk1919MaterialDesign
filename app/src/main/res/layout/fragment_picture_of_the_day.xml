@@ -69,6 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:scaleType="fitCenter"
                 android:contentDescription="@string/photo_of_the_day_stub"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -102,57 +103,13 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <FrameLayout
-        android:id="@+id/loadingView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        tools:visibility="invisible">
+    <include
+        android:id="@+id/loading"
+        layout="@layout/loading_layout" />
 
-        <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminateDrawable="@drawable/progress_bar"
-            android:layout_gravity="center" />
-    </FrameLayout>
-
-    <LinearLayout
-        android:id="@+id/errorView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        android:orientation="vertical"
-        tools:visibility="gone">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="300dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/vincent"
-            android:contentDescription="@string/error" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/error"
-            android:textSize="@dimen/size_titel_error" />
-
-        <TextView
-            android:id="@+id/error_description_first"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="@dimen/size_error_description" />
-
-        <TextView
-            android:id="@+id/error_description_second"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="@dimen/size_error_description" />
-    </LinearLayout>
+    <include
+        android:id="@+id/error"
+        layout="@layout/error_layout" />
 
 </FrameLayout>
 

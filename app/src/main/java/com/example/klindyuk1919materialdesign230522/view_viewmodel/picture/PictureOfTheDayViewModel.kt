@@ -1,9 +1,9 @@
 package com.example.klindyuk1919materialdesign230522.view_viewmodel.picture
 
-import android.content.Context
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.klindyuk1919materialdesign230522.BuildConfig
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.repo.PictureOfTheDayResponseData
@@ -17,18 +17,30 @@ import java.util.*
 
 
 class PictureOfTheDayViewModel(
-    private val liveData: MutableLiveData<PictureOfTheDayAppState> = MutableLiveData(),
-    private val pictureOfTheDayRetrofitImpl: PictureOfTheDayRetrofitImpl = PictureOfTheDayRetrofitImpl()
-) : ViewModel() {
+    app: Application,
+) : AndroidViewModel(app) {
+    //AndroidViewModel. Подклассы должны иметь конструктор, который принимает Application в качестве единственного параметра.
+
+    private val liveData: MutableLiveData<PictureOfTheDayAppState> = MutableLiveData()
+    private val pictureOfTheDayRetrofitImpl: PictureOfTheDayRetrofitImpl =
+        PictureOfTheDayRetrofitImpl()
 
     fun getLiveData(): LiveData<PictureOfTheDayAppState> {
         return liveData
     }
 
-    fun sendRequest(context: Context, day: Int) { //TODO утончинть про контекст
+    fun sendRequest(day: Int) {
         liveData.postValue(PictureOfTheDayAppState.Loading(null))
         if (BuildConfig.NASA_API_KEY.isNullOrEmpty()) {
-            liveData.postValue(PictureOfTheDayAppState.Error(Exception(context.getString(R.string.error_nasa_api_key))))
+            liveData.postValue(
+                PictureOfTheDayAppState.Error(
+                    Exception(
+                        getApplication<Application>().resources.getString(
+                            R.string.error_nasa_api_key
+                        )
+                    )
+                )
+            )
         } else {
             pictureOfTheDayRetrofitImpl.getRetrofit()
                 .getPictureOfTheDay(BuildConfig.NASA_API_KEY, getData(day))

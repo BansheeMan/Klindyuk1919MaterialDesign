@@ -12,7 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
     private var _binding: BottomNavigationLayoutBinding? = null
-    val binding: BottomNavigationLayoutBinding
+    private val binding: BottomNavigationLayoutBinding
         get() = _binding!!
 
     override fun onCreateView(
