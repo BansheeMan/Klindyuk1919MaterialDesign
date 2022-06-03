@@ -55,13 +55,17 @@ class PictureOfTheDayFragment : Fragment() {
 
     private fun switchChipGroup() {
         binding.chipGroup.setOnCheckedChangeListener { group, position ->
-             when(position){
-                1->{viewModel.sendRequest(TODAY)}
-                2->{viewModel.sendRequest(YESTERDAY)}
-                3->{viewModel.sendRequest(TWO_DAYS_AGO)}
-            }
-            group.findViewById<Chip>(position)?.let{ //для себя
-                Log.d("@@@", "${it.text} $position")
+            val chip = group.findViewById<Chip>(position)
+            when (chip?.tag) {
+                "chip1" -> {
+                    viewModel.sendRequest(TODAY)
+                }
+                "chip2" -> {
+                    viewModel.sendRequest(YESTERDAY)
+                }
+                "chip3" -> {
+                    viewModel.sendRequest(TWO_DAYS_AGO)
+                }
             }
         }
     }

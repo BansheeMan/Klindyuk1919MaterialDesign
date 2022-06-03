@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Klindyuk1919MaterialDesign</string>
     <string name="photo_of_the_day_stub">Photo of the day</string>
     <string name="search_wiki">Найти в Википедии</string>
@@ -21,4 +21,7 @@
     <string name="today">Today</string>
     <string name="yesterday">Yesterday</string>
     <string name="two_days_ago">Two Days Ago</string>
+    <string name="chip1" tools:ignore="Typos">chip1</string>
+    <string name="chip2">chip2</string>
+    <string name="chip3">chip3</string>
 </resources>

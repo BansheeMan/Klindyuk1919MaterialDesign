@@ -38,25 +38,29 @@
             android:id="@+id/chipGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/inputLayout"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputLayout"
+            app:selectionRequired="true"
             app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                android:tag="@string/chip1"
                 android:text="@string/today" />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/yesterday"/>
+                android:tag="@string/chip2"
+                android:text="@string/yesterday" />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:tag="@string/chip3"
                 android:text="@string/two_days_ago" />
         </com.google.android.material.chip.ChipGroup>
 
