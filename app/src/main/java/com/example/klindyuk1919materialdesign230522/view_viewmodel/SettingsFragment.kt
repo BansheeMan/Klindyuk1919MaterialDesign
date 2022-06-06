@@ -23,7 +23,6 @@ class SettingsFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu_bottom_bar, menu)
@@ -31,8 +30,24 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setThemesFragment()
+        initTabLayout()
+    }
+
+    private fun initTabLayout() {
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
+                when (tab?.position) {
+                    0 -> {
+                        setThemesFragment()
+                    }
+                    1 -> {
+                        setEmptyFragment()
+                    }
+                    2 -> {
+                        setEmptyFragment()
+                    }
+                }
                 Toast.makeText(requireContext(), "onTabSelected ${tab?.text}", Toast.LENGTH_SHORT)
                     .show()
             }
@@ -48,6 +63,18 @@ class SettingsFragment : Fragment() {
             }
 
         })
+    }
+
+    private fun setEmptyFragment() {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.settings_container, EmptyFragment.newInstance())
+            .commit()
+    }
+
+    private fun setThemesFragment() {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.settings_container, ThemesFragment.newInstance())
+            .commit()
     }
 
     companion object {

@@ -16,7 +16,7 @@
         android:theme="@style/MyBaseTheme"
         tools:targetApi="31">
         <activity
-            android:name=".view_viewmodel.MainActivity"
+            android:name=".view_viewmodel.main_activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

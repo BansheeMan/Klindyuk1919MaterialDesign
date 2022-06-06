@@ -15,7 +15,7 @@ import coil.transform.CircleCropTransformation
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.FragmentPictureOfTheDayBinding
 import com.example.klindyuk1919materialdesign230522.utils.*
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.MainActivity
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.main_activity.MainActivity
 import com.example.klindyuk1919materialdesign230522.view_viewmodel.SettingsFragment
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -116,7 +116,8 @@ class PictureOfTheDayFragment : Fragment() {
             R.id.app_bar_settings -> {
                 Log.d("@@@", "app_bar_settings")
                 requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, SettingsFragment.newInstance()).commit()
+                    .addToBackStack("").replace(R.id.container, SettingsFragment.newInstance())
+                    .commit()
             }
             android.R.id.home -> {
                 BottomNavigationDrawerFragment.newInstance()

@@ -24,9 +24,13 @@
     <string name="chip1" tools:ignore="Typos">chip1</string>
     <string name="chip2">chip2</string>
     <string name="chip3">chip3</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="themes">THEMES</string>
     <string name="menu_two">Меню 2</string>
     <string name="menu_three">Меню 3</string>
+    <string name="base_theme">BASE THEME</string>
+    <string name="red_theme">RED THEME</string>
+    <string name="orange_theme">ORANGE THEME</string>
+    <string name="green_theme">GREEN THEME</string>
+    <string name="purple_theme">PURPLE THEME</string>
+    <string name="empty_fragment">EMPTY FRAGMENT</string>
 </resources>
