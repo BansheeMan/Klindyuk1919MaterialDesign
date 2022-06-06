@@ -2,7 +2,7 @@
 <resources>
     <dimen name="size_titel_error">80sp</dimen>
     <dimen name="size_error_description">40sp</dimen>
-    <dimen name="size_text_bsm_title">30sp</dimen>
+    <dimen name="size_text_bsm_title">25sp</dimen>
     <dimen name="size_text_bsl_explanation">20sp</dimen>
     <dimen name="size_behavior_peek_height">163dp</dimen>
     <dimen name="size_margin_bottom_navigation">8dp</dimen>

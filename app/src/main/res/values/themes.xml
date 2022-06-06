@@ -23,10 +23,15 @@
         <item name="textInputStyle">@style/MyStyle</item>
         <item name="floatingActionButtonStyle">@style/MyStyleFloatingActionButton</item>
         <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Choice</item>
+
         <item name="backgroundBSHL">@color/turquoise_400</item>
         <item name="view_point_BSHL">@color/turquoise_900</item>
         <item name="myColor">@color/turquoise_700</item>
         <item name="radioButtonStyle">@style/Radio_BTN</item>
+
+        <item name="textAppearanceBody2">@style/MyTextAppearance</item>
+
+        <item name="shapeAppearanceMediumComponent">@style/MyMediumShape</item>
     </style>
 
     <style name="MyRedTheme" parent="MyBaseTheme">
@@ -43,6 +48,7 @@
         <item name="android:textColor">@color/red_900</item>
         <item name="colorOnTertiaryContainer">@color/red_900</item>
         <item name="android:statusBarColor">@color/red_600</item>
+
         <item name="backgroundBSHL">@color/red_100</item>
         <item name="view_point_BSHL">@color/red_900</item>
         <item name="myColor">@color/red_700</item>

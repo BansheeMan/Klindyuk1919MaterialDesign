@@ -2,6 +2,7 @@ package com.example.klindyuk1919materialdesign230522.view_viewmodel.main_activit
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.ActivityMainBinding
 import com.example.klindyuk1919materialdesign230522.utils.*
@@ -11,6 +12,7 @@ open class ThemesChanger : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         setTheme(getRealStyle(getCurrentTheme()))
     }
 
