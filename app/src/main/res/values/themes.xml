@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.Klindyuk1919MaterialDesign230522" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="MyBaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="android:navigationBarColor">@color/turquoise_900</item>
         <item name="colorPrimary">@color/turquoise_700</item>
@@ -17,23 +17,64 @@
         <item name="colorTertiaryContainer">@color/turquoise_100</item>
         <item name="colorOnTertiaryContainer">@color/turquoise_900</item>
         <item name="android:textColor">@color/turquoise_900</item>
-
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >@color/turquoise_600</item>
+        <item name="android:statusBarColor">@color/turquoise_600</item>
         <!-- Customize your theme here. -->
         <item name="textInputStyle">@style/MyStyle</item>
         <item name="floatingActionButtonStyle">@style/MyStyleFloatingActionButton</item>
         <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Choice</item>
+        <item name="backgroundBSHL">@color/turquoise_400</item>
+        <item name="view_point_BSHL">@color/turquoise_900</item>
+        <item name="myColor">@color/turquoise_700</item>
     </style>
 
-    <style name="MyStyleFloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
-        <item name="tint">@color/turquoise_600</item>
+    <style name="MyRedTheme" parent="MyBaseTheme">
+        <item name="android:navigationBarColor">@color/red_900</item>
+        <item name="colorPrimary">@color/red_700</item>
+        <item name="colorPrimaryContainer">@color/red_100</item>
+        <item name="colorOnPrimaryContainer">@color/red_900</item>
+        <item name="colorPrimaryInverse">@color/red_200</item>
+        <item name="colorSecondary">@color/red_600</item>
+        <item name="colorSecondaryContainer">@color/red_100</item>
+        <item name="colorOnSecondaryContainer">@color/red_900</item>
+        <item name="colorTertiary">@color/red_600</item>
+        <item name="colorTertiaryContainer">@color/red_100</item>
+        <item name="android:textColor">@color/red_900</item>
+        <item name="colorOnTertiaryContainer">@color/red_900</item>
+        <item name="android:statusBarColor">@color/red_600</item>
+        <item name="backgroundBSHL">@color/red_100</item>
+        <item name="view_point_BSHL">@color/red_900</item>
+        <item name="myColor">@color/red_700</item>
     </style>
 
-    <style name="MyStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/turquoise_600</item>
-        <item name="helperTextEnabled">false</item>
-        <item name="counterEnabled">false</item>
-        <item name="errorTextColor">#034AFF</item>
+    <style name="SingleColorTheme" parent="MyBaseTheme">
+        <item name="android:navigationBarColor">?myColor</item>
+        <item name="colorPrimary">?myColor</item>
+        <item name="colorPrimaryContainer">?myColor</item>
+        <item name="colorOnPrimaryContainer">?myColor</item>
+        <item name="colorPrimaryInverse">?myColor</item>
+        <item name="colorSecondary">?myColor</item>
+        <item name="colorSecondaryContainer">?myColor</item>
+        <item name="colorOnSecondaryContainer">?myColor</item>
+        <item name="colorTertiary">?myColor</item>
+        <item name="colorTertiaryContainer">?myColor</item>
+        <item name="colorOnTertiaryContainer">?myColor</item>
+        <item name="android:statusBarColor">?myColor</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="backgroundBSHL">@color/light_gray</item>
+        <item name="view_point_BSHL">?myColor</item>
     </style>
+
+    <style name="MyOrangeTheme" parent="SingleColorTheme">
+        <item name="myColor">@color/orange</item>
+    </style>
+
+    <style name="MyGreenTheme" parent="SingleColorTheme">
+        <item name="myColor">@color/green</item>
+    </style>
+
+    <style name="MyPurpleTheme" parent="SingleColorTheme">
+        <item name="myColor">@color/purple</item>
+    </style>
+
 </resources>

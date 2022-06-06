@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyStyleFloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="tint">?myColor</item>
+    </style>
+
+    <style name="MyStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/turquoise_600</item>
+        <item name="helperTextEnabled">false</item>
+        <item name="counterEnabled">false</item>
+        <item name="errorTextColor">#034AFF</item>
+    </style>
+</resources>
