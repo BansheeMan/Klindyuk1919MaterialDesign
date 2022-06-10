@@ -12,6 +12,8 @@ const val FORMAT_DATE = "yyyy-MM-dd"
 
 internal const val KEY_SP = "SP"
 internal const val KEY_CURRENT_THEME = "CURRENT_THEME"
+internal const val KEY_CURRENT_MODE = "CURRENT_MODE"
+
 
 const val THEME_BASE = 1
 const val THEME_RED = 2

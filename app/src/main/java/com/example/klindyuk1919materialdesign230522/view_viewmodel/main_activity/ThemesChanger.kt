@@ -2,6 +2,7 @@ package com.example.klindyuk1919materialdesign230522.view_viewmodel.main_activit
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.utils.*
 
@@ -9,6 +10,7 @@ open class ThemesChanger : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setNightMode(getCurrentMode())
         setTheme(getRealStyle(getCurrentTheme()))
     }
 
@@ -33,5 +35,24 @@ open class ThemesChanger : AppCompatActivity() {
             THEME_PURPLE -> R.style.MyPurpleTheme
             else -> 0
         }
+    }
+
+    private fun setNightMode(boolean: Boolean) {
+        when (boolean) {
+            true -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            false -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+    }
+
+    private fun getCurrentMode(): Boolean {
+        val shp = getSharedPreferences(KEY_SP, MODE_PRIVATE)
+        return shp.getBoolean(KEY_CURRENT_MODE, false)
+    }
+
+    fun setCurrentMode(currentMode: Boolean) {
+        val shp = getSharedPreferences(KEY_SP, MODE_PRIVATE)
+        val editor = shp.edit()
+        editor.putBoolean(KEY_CURRENT_MODE, currentMode)
+        editor.apply()
     }
 }

@@ -38,7 +38,30 @@ class ThemesFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         changeNightMode()
+        changeThemes()
+    }
 
+    private fun changeNightMode() {
+       when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_NO -> {
+                binding.swDarkMode.isChecked = false
+            }
+            Configuration.UI_MODE_NIGHT_YES -> {
+                binding.swDarkMode.isChecked = true
+            }
+        }
+        binding.swDarkMode.setOnCheckedChangeListener { button, isCheked ->
+            if (isCheked) {
+                parentActivity.setCurrentMode(true)
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                parentActivity.setCurrentMode(false)
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
+    }
+
+    private fun changeThemes() {
         binding.rbBase.setOnClickListener(this)
         binding.rbRed.setOnClickListener(this)
         binding.rbOrange.setOnClickListener(this)
@@ -52,24 +75,6 @@ class ThemesFragment : Fragment(), View.OnClickListener {
                 THEME_GREEN -> radioButtons.check(R.id.rb_green)
                 THEME_PURPLE -> radioButtons.check(R.id.rb_purple)
                 else -> radioButtons.check(R.id.rb_base)
-            }
-        }
-    }
-
-    private fun changeNightMode() {
-        when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-            Configuration.UI_MODE_NIGHT_NO -> {
-                binding.swDarkMode.isChecked = false
-            }
-            Configuration.UI_MODE_NIGHT_YES -> {
-                binding.swDarkMode.isChecked = true
-            }
-        }
-        binding.swDarkMode.setOnCheckedChangeListener { button, isCheked ->
-            if (isCheked) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
     }

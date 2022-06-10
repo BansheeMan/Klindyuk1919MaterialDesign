@@ -34,4 +34,8 @@
     <string name="purple_theme">PURPLE THEME</string>
     <string name="empty_fragment">EMPTY FRAGMENT</string>
     <string name="dark_mode">DARK MODE</string>
+    <string name="one">1</string>
+    <string name="double_dot">..</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
 </resources>
