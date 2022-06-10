@@ -39,5 +39,8 @@
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="hw3_vp">hw3_view_pager</string>
+    <string name="earth">Earth</string>
+    <string name="solar_system">System</string>
+    <string name="mars">Mars</string>
 
 </resources>
