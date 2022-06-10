@@ -33,4 +33,5 @@
     <string name="green_theme">GREEN THEME</string>
     <string name="purple_theme">PURPLE THEME</string>
     <string name="empty_fragment">EMPTY FRAGMENT</string>
+    <string name="dark_mode">DARK MODE</string>
 </resources>

@@ -27,7 +27,8 @@
         <item name="backgroundBSHL">@color/turquoise_400</item>
         <item name="view_point_BSHL">@color/turquoise_900</item>
         <item name="myColor">@color/turquoise_700</item>
-        <item name="radioButtonStyle">@style/Radio_BTN</item>
+        <item name="radioButtonStyle">@style/MyRadio_BTN</item>
+        <item name="switchStyle">@style/MySwitchBTN</item>
 
         <item name="textAppearanceBody2">@style/MyTextAppearance</item>
 

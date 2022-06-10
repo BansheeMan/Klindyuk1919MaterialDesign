@@ -12,7 +12,12 @@
         <item name="errorTextColor">#034AFF</item>
     </style>
 
-    <style name="Radio_BTN" parent="Widget.MaterialComponents.CompoundButton.RadioButton" >
+    <style name="MyRadio_BTN" parent="Widget.MaterialComponents.CompoundButton.RadioButton" >
+        <item name="android:textSize">@dimen/size_text_rb_themes</item>
+        <item name="android:fontFamily">@font/font3</item>
+    </style>
+
+    <style name="MySwitchBTN" parent="Widget.MaterialComponents.CompoundButton.Switch" >
         <item name="android:textSize">@dimen/size_text_rb_themes</item>
         <item name="android:fontFamily">@font/font3</item>
     </style>

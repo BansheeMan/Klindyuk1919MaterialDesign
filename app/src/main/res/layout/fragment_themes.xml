@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".view_viewmodel.ThemesFragment">
 
     <RadioGroup
         android:id="@+id/radioButtons"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/rb_base"
@@ -41,6 +42,13 @@
             android:layout_height="wrap_content"
             android:text="@string/purple_theme" />
 
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/sw_dark_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="@string/dark_mode"/>
+
     </RadioGroup>
 
-</FrameLayout>
+</LinearLayout>

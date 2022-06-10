@@ -1,10 +1,12 @@
 package com.example.klindyuk1919materialdesign230522.view_viewmodel
 
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.FragmentThemesBinding
@@ -35,6 +37,8 @@ class ThemesFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        changeNightMode()
+
         binding.rbBase.setOnClickListener(this)
         binding.rbRed.setOnClickListener(this)
         binding.rbOrange.setOnClickListener(this)
@@ -48,6 +52,24 @@ class ThemesFragment : Fragment(), View.OnClickListener {
                 THEME_GREEN -> radioButtons.check(R.id.rb_green)
                 THEME_PURPLE -> radioButtons.check(R.id.rb_purple)
                 else -> radioButtons.check(R.id.rb_base)
+            }
+        }
+    }
+
+    private fun changeNightMode() {
+        when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_NO -> {
+                binding.swDarkMode.isChecked = false
+            }
+            Configuration.UI_MODE_NIGHT_YES -> {
+                binding.swDarkMode.isChecked = true
+            }
+        }
+        binding.swDarkMode.setOnCheckedChangeListener { button, isCheked ->
+            if (isCheked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
     }

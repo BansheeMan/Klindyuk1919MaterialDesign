@@ -9,7 +9,6 @@ import com.example.klindyuk1919materialdesign230522.view_viewmodel.picture.Pictu
 class MainActivity : ThemesChanger() {
 
     private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }

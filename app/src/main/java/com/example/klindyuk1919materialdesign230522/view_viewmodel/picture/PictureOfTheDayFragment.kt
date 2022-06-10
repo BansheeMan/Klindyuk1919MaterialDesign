@@ -15,8 +15,8 @@ import coil.transform.CircleCropTransformation
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.FragmentPictureOfTheDayBinding
 import com.example.klindyuk1919materialdesign230522.utils.*
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.main_activity.MainActivity
 import com.example.klindyuk1919materialdesign230522.view_viewmodel.SettingsFragment
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.main_activity.MainActivity
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
