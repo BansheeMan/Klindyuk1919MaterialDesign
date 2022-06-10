@@ -20,3 +20,7 @@ const val THEME_RED = 2
 const val THEME_ORANGE = 3
 const val THEME_GREEN = 4
 const val THEME_PURPLE = 5
+
+const val EARTH = 0
+const val SOLAR_SYSTEM = 1
+const val MARS = 2

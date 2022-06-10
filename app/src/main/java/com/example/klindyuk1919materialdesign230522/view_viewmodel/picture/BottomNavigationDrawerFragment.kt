@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.BottomNavigationLayoutBinding
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.les3.Les3VPFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
@@ -31,8 +32,11 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
     private fun clickNavigationFragment() {
         binding.navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.navigation_one -> {
-                    Log.d("@@@", "Screen One")
+                R.id.hw3_vp -> {
+                    Log.d("@@@", "hw3_vp")
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .addToBackStack("").replace(R.id.container, Les3VPFragment.newInstance())
+                        .commit()
                 }
                 R.id.navigation_two -> {
                     Log.d("@@@", "Screen Two")

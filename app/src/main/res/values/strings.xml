@@ -38,4 +38,6 @@
     <string name="double_dot">..</string>
     <string name="two">2</string>
     <string name="three">3</string>
+    <string name="hw3_vp">hw3_view_pager</string>
+
 </resources>
