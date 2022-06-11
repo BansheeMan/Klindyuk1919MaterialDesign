@@ -8,9 +8,9 @@
             app:showAsAction="always"
             android:title="@string/hw3_vp" />
         <item
-            android:id="@+id/navigation_two"
-            android:icon="@drawable/ic_send"
-            android:title="@string/screen_two" />
+            android:id="@+id/api_bottom_fragment"
+            android:icon="@drawable/ic_system"
+            android:title="@string/api_bottom_fragment" />
     </group>
 
 </menu>

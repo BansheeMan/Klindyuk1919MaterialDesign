@@ -42,5 +42,6 @@
     <string name="earth">Earth</string>
     <string name="solar_system">System</string>
     <string name="mars">Mars</string>
+    <string name="api_bottom_fragment">Api Bottom Fragment</string>
 
 </resources>

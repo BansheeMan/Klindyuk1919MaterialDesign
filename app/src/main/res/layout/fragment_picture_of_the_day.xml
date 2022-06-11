@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?android:windowBackground"
     tools:context=".view_viewmodel.picture.PictureOfTheDayFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -86,6 +87,7 @@
                 android:id="@+id/hackBsl"
                 layout="@layout/bottom_sheet_layout" />
 
+            <!--ДЛЯ HW3 СКРЫЛ!!!-->
             <com.google.android.material.bottomappbar.BottomAppBar
                 android:id="@+id/bottom_app_bar"
                 android:layout_width="match_parent"
@@ -93,6 +95,7 @@
                 android:layout_gravity="bottom"
                 app:backgroundTint="?colorPrimary"
                 app:fabAlignmentMode="center"
+                android:visibility="visible"
                 app:navigationIcon="@drawable/ic_hamburger_menu_bottom_bar" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -102,6 +105,7 @@
                 android:backgroundTint="?colorOnPrimary"
                 app:layout_anchor="@id/bottom_app_bar"
                 app:srcCompat="@drawable/ic_plus_fab"
+                android:visibility="visible"
                 android:contentDescription="@string/description_fab" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>

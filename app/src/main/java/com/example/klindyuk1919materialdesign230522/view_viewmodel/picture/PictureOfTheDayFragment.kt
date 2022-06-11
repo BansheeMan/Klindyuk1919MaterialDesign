@@ -48,7 +48,7 @@ class PictureOfTheDayFragment : Fragment() {
         }
         viewModel.sendRequest(TODAY)
         findWiki()
-        stateBottomSheetBehavior()
+       // stateBottomSheetBehavior()
         setActionBar()
         switchFAB()
         switchChipGroup()

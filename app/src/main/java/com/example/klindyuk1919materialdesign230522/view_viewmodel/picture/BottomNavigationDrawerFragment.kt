@@ -6,21 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.klindyuk1919materialdesign230522.R
-import com.example.klindyuk1919materialdesign230522.databinding.BottomNavigationLayoutBinding
+import com.example.klindyuk1919materialdesign230522.databinding.BottomNavigationDrawerLayoutBinding
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.les3.ApiBottomFragment
 import com.example.klindyuk1919materialdesign230522.view_viewmodel.les3.Les3VPFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
-    private var _binding: BottomNavigationLayoutBinding? = null
-    private val binding: BottomNavigationLayoutBinding
+    private var _binding: BottomNavigationDrawerLayoutBinding? = null
+    private val binding: BottomNavigationDrawerLayoutBinding
         get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = BottomNavigationLayoutBinding.inflate(inflater, container, false)
+        _binding = BottomNavigationDrawerLayoutBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -38,8 +39,11 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                         .addToBackStack("").replace(R.id.container, Les3VPFragment.newInstance())
                         .commit()
                 }
-                R.id.navigation_two -> {
-                    Log.d("@@@", "Screen Two")
+                R.id.api_bottom_fragment -> {
+                    Log.d("@@@", "api_bottom_fragment")
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .addToBackStack("").replace(R.id.container, ApiBottomFragment.newInstance())
+                        .commit()
                 }
             }
             dismiss()
