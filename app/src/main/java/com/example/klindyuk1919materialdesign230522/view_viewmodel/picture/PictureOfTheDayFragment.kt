@@ -48,9 +48,9 @@ class PictureOfTheDayFragment : Fragment() {
         }
         viewModel.sendRequest(TODAY)
         findWiki()
-       // stateBottomSheetBehavior()
-        setActionBar()
-        switchFAB()
+       stateBottomSheetBehavior()
+       // setActionBar()
+        //switchFAB()
         switchChipGroup()
     }
 
@@ -71,84 +71,7 @@ class PictureOfTheDayFragment : Fragment() {
         }
     }
 
-    private fun switchFAB() {
-        binding.fab.setOnClickListener {
-            with(binding) {
-                if (isMain) {
-                    bottomAppBar.navigationIcon = null
-                    bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                    fab.setImageDrawable(
-                        ContextCompat.getDrawable(
-                            requireContext(),
-                            R.drawable.ic_arrow_back
-                        )
-                    )
-                    bottomAppBar.replaceMenu(R.menu.menu_bottom_bar_2)
-                } else {
-                    bottomAppBar.navigationIcon = (ContextCompat.getDrawable(
-                        requireContext(),
-                        R.drawable.ic_hamburger_menu_bottom_bar
-                    ))
-                    bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                    fab.setImageDrawable(
-                        ContextCompat.getDrawable(
-                            requireContext(),
-                            R.drawable.ic_plus_fab
-                        )
-                    )
-                    bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
-                }
-                isMain = !isMain
-            }
-        }
-    }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_bottom_bar, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.app_bar_fav -> {
-                Log.d("@@@", "app_bar_fav")
-            }
-            R.id.app_bar_settings -> {
-                Log.d("@@@", "app_bar_settings")
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .addToBackStack("").replace(R.id.container, SettingsFragment.newInstance())
-                    .commit()
-            }
-            android.R.id.home -> {
-                BottomNavigationDrawerFragment.newInstance()
-                    .show(requireActivity().supportFragmentManager, "")
-            }
-            R.id.app_bar_send -> {
-                Log.d("@@@", "app_bar_send")
-            }
-            R.id.app_bar_content_paste -> {
-                Log.d("@@@", "app_bar_content_paste")
-            }
-            R.id.app_bar_clear -> {
-                Log.d("@@@", "app_bar_clear")
-            }
-            R.id.app_bar_archive -> {
-                Log.d("@@@", "app_bar_archive")
-            }
-            R.id.app_bar_coronavirus -> {
-                Log.d("@@@", "app_bar_coronavirus")
-            }
-            R.id.app_bar_downhill_skiing -> {
-                Log.d("@@@", "app_bar_downhill_skiing")
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun setActionBar() {
-        (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
-        setHasOptionsMenu(true)
-    }
 
     private fun stateBottomSheetBehavior() {
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.hackBsl.bottomSheetContainer)

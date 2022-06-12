@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_bottom_navigation_pod"
+        android:icon="@drawable/ic_earth"
+        android:title="@string/photo_of_the_day_stub" />
+    <item
+        android:id="@+id/action_bottom_navigation_system"
+        android:icon="@drawable/ic_system"
+        android:title="@string/solar_system" />
+
+    <item
+        android:id="@+id/action_bottom_navigation_settings"
+        android:icon="@drawable/ic_settings_menu"
+        android:title="@string/settings" />
+</menu>

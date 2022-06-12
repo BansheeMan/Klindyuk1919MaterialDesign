@@ -1,16 +1,13 @@
 package com.example.klindyuk1919materialdesign230522.view_viewmodel.les3
 
-import android.content.res.Resources
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.utils.EARTH
 import com.example.klindyuk1919materialdesign230522.utils.MARS
 import com.example.klindyuk1919materialdesign230522.utils.SOLAR_SYSTEM
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.EarthFragment
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.EarthFragment
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.MarsFragment
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.SystemFragment
 
 class ViewPager2Adapter(fa: Fragment) :FragmentStateAdapter(fa) {
 

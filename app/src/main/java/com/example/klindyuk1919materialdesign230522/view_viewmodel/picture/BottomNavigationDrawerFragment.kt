@@ -36,13 +36,13 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 R.id.hw3_vp -> {
                     Log.d("@@@", "hw3_vp")
                     requireActivity().supportFragmentManager.beginTransaction()
-                        .addToBackStack("").replace(R.id.container, Les3VPFragment.newInstance())
+                        .addToBackStack("").replace(R.id.fragment_container_view, Les3VPFragment.newInstance())
                         .commit()
                 }
                 R.id.api_bottom_fragment -> {
                     Log.d("@@@", "api_bottom_fragment")
                     requireActivity().supportFragmentManager.beginTransaction()
-                        .addToBackStack("").replace(R.id.container, ApiBottomFragment.newInstance())
+                        .addToBackStack("").replace(R.id.fragment_container_view, ApiBottomFragment.newInstance())
                         .commit()
                 }
             }

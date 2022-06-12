@@ -8,7 +8,9 @@ import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.utils.EARTH
 import com.example.klindyuk1919materialdesign230522.utils.MARS
 import com.example.klindyuk1919materialdesign230522.utils.SOLAR_SYSTEM
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.EarthFragment
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.EarthFragment
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.MarsFragment
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.SystemFragment
 
 class ViewPagerAdapter(fm: FragmentManager, val resources: Resources) :
     FragmentStatePagerAdapter(fm) {
