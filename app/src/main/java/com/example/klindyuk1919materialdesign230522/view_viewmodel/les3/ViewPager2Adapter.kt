@@ -9,7 +9,7 @@ import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragm
 import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.MarsFragment
 import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.SystemFragment
 
-class ViewPager2Adapter(fa: Fragment) :FragmentStateAdapter(fa) {
+class ViewPager2Adapter(fa: Fragment) : FragmentStateAdapter(fa) {
 
 
     private val fragments = arrayOf(
@@ -30,7 +30,8 @@ class ViewPager2Adapter(fa: Fragment) :FragmentStateAdapter(fa) {
             else -> {
                 EarthFragment.newInstance()
             }
-        }    }
+        }
+    }
 
     /*override fun getItem(position: Int): Fragment {
         return when (position) {

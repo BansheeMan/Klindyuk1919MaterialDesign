@@ -1,4 +1,4 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel
+package com.example.klindyuk1919materialdesign230522.view_viewmodel.settings
 
 import android.content.Context
 import android.content.res.Configuration
@@ -50,7 +50,7 @@ class ThemesFragment : Fragment(), View.OnClickListener {
                 binding.swDarkMode.isChecked = true
             }
         }
-        binding.swDarkMode.setOnCheckedChangeListener { button, isCheked ->
+        binding.swDarkMode.setOnCheckedChangeListener { _, isCheked ->
             if (isCheked) {
                 parentActivity.setCurrentMode(true)
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)

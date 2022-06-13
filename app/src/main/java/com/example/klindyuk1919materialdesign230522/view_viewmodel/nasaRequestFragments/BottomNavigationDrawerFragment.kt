@@ -1,4 +1,4 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel.picture
+package com.example.klindyuk1919materialdesign230522.view_viewmodel.nasaRequestFragments
 
 import android.os.Bundle
 import android.util.Log
@@ -36,13 +36,15 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 R.id.hw3_vp -> {
                     Log.d("@@@", "hw3_vp")
                     requireActivity().supportFragmentManager.beginTransaction()
-                        .addToBackStack("").replace(R.id.fragment_container_view, Les3VPFragment.newInstance())
+                        .addToBackStack("")
+                        .replace(R.id.fragment_container_view2, Les3VPFragment.newInstance())
                         .commit()
                 }
                 R.id.api_bottom_fragment -> {
                     Log.d("@@@", "api_bottom_fragment")
                     requireActivity().supportFragmentManager.beginTransaction()
-                        .addToBackStack("").replace(R.id.fragment_container_view, ApiBottomFragment.newInstance())
+                        .addToBackStack("")
+                        .replace(R.id.fragment_container_view2, ApiBottomFragment.newInstance())
                         .commit()
                 }
             }

@@ -2,8 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_bottom_navigation_pod"
-        android:icon="@drawable/ic_earth"
+        android:icon="@drawable/ic_photos"
         android:title="@string/photo_of_the_day_stub" />
+    <item
+        android:id="@+id/action_bottom_navigation_epic"
+        android:icon="@drawable/ic_earth"
+        android:title="@string/epic" />
+
+    <item
+        android:id="@+id/action_bottom_navigation_lifs"
+        android:icon="@drawable/sputnic"
+        android:title="@string/lifs" />
+
     <item
         android:id="@+id/action_bottom_navigation_system"
         android:icon="@drawable/ic_system"

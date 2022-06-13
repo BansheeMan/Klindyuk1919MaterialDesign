@@ -43,5 +43,8 @@
     <string name="solar_system">System</string>
     <string name="mars">Mars</string>
     <string name="api_bottom_fragment">Api Bottom Fragment</string>
-
+    <string name="epic">EPIC</string>
+    <string name="lifs">LIFS</string>
+    <string name="coordinate_lat_lon">lt/ln: %s, %s</string>
+    <string name="image_load_ten_sec">картинка почему-то загружается секунд 10</string>
 </resources>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:windowBackground"
+    tools:context=".view_viewmodel.nasaRequestFragments.PictureOfTheDayFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/success_view_lifs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="visible">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_lifs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/search_wiki"
+            app:counterEnabled="true"
+            app:counterMaxLength="25"
+            app:helperText="@string/wiki_helper_text"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_wikipedia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_edit_text_lifs"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.example.klindyuk1919materialdesign230522.utils.EquilateralImageView
+            android:id="@+id/image_view_lifs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:contentDescription="@string/photo_of_the_day_stub"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_layout_lifs"
+            app:srcCompat="@drawable/ic_no_photo_vector" />
+
+        <TextView
+            android:id="@+id/textview_lifs_zero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/image_load_ten_sec"
+            android:textColor="@color/red_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_view_lifs" />
+
+        <TextView
+            android:id="@+id/textview_lifs_one"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/textview_lifs_zero"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/clear"
+            style="@style/MySwitchBTN"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textview_lifs_two"
+            android:layout_width="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/clear"
+            style="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintTop_toBottomOf="@id/textview_lifs_one"
+            android:textSize="18sp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textview_lifs_three"
+            android:layout_width="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/clear"
+            style="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintTop_toBottomOf="@id/textview_lifs_two"
+            android:textSize="18sp"
+            android:layout_height="wrap_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/loading"
+        layout="@layout/loading_layout" />
+
+    <include
+        android:id="@+id/error"
+        layout="@layout/error_layout" />
+
+</FrameLayout>
+
+

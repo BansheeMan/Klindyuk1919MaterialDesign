@@ -1,12 +1,12 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel.picture
+package com.example.klindyuk1919materialdesign230522.view_viewmodel.nasaRequestFragments
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
@@ -15,9 +15,8 @@ import coil.transform.CircleCropTransformation
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.FragmentPictureOfTheDayBinding
 import com.example.klindyuk1919materialdesign230522.utils.*
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.SettingsFragment
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.main_activity.MainActivity
-import com.google.android.material.bottomappbar.BottomAppBar
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.NasaRequestViewModel
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.NasaRequestAppState
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
 
@@ -26,11 +25,9 @@ class PictureOfTheDayFragment : Fragment() {
     private var _binding: FragmentPictureOfTheDayBinding? = null
     private val binding: FragmentPictureOfTheDayBinding
         get() = _binding!!
-    private var isMain = true
 
-
-    private val viewModel: PictureOfTheDayViewModel by lazy {
-        ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
+    private val viewModel: NasaRequestViewModel by lazy {
+        ViewModelProvider(this).get(NasaRequestViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -46,11 +43,9 @@ class PictureOfTheDayFragment : Fragment() {
         viewModel.getLiveData().observe(viewLifecycleOwner) {
             renderData(it)
         }
-        viewModel.sendRequest(TODAY)
+        viewModel.sendRequestPOD(TODAY)
         findWiki()
-       stateBottomSheetBehavior()
-       // setActionBar()
-        //switchFAB()
+        stateBottomSheetBehavior()
         switchChipGroup()
     }
 
@@ -59,19 +54,17 @@ class PictureOfTheDayFragment : Fragment() {
             val chip = group.findViewById<Chip>(position)
             when (chip?.tag) {
                 "chip1" -> {
-                    viewModel.sendRequest(TODAY)
+                    viewModel.sendRequestPOD(TODAY)
                 }
                 "chip2" -> {
-                    viewModel.sendRequest(YESTERDAY)
+                    viewModel.sendRequestPOD(YESTERDAY)
                 }
                 "chip3" -> {
-                    viewModel.sendRequest(TWO_DAYS_AGO)
+                    viewModel.sendRequestPOD(TWO_DAYS_AGO)
                 }
             }
         }
     }
-
-
 
     private fun stateBottomSheetBehavior() {
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.hackBsl.bottomSheetContainer)
@@ -87,9 +80,9 @@ class PictureOfTheDayFragment : Fragment() {
         }
     }
 
-    private fun renderData(appState: PictureOfTheDayAppState) {
+    private fun renderData(appState: NasaRequestAppState) {
         when (appState) {
-            is PictureOfTheDayAppState.Error -> {
+            is NasaRequestAppState.Error -> {
                 with(binding) {
                     val trouble = appState.error.message
                     successView.visibility = View.GONE
@@ -99,13 +92,13 @@ class PictureOfTheDayFragment : Fragment() {
                     }
                 }
             }
-            is PictureOfTheDayAppState.Loading -> {
+            is NasaRequestAppState.Loading -> {
                 with(binding) {
                     imageView.scaleType = ImageView.ScaleType.CENTER
                     imageView.load(R.drawable.progress_animation)
                 }
             }
-            is PictureOfTheDayAppState.Success -> {
+            is NasaRequestAppState.SuccessPOD -> {
                 with(binding) {
                     error.errorView.visibility = View.GONE
                     successView.visibility = View.VISIBLE

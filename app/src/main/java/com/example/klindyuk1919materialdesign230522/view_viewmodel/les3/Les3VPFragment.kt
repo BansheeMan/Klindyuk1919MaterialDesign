@@ -42,7 +42,7 @@ class Les3VPFragment : Fragment() {
                 SOLAR_SYSTEM -> resources.getString(R.string.solar_system)
                 MARS -> resources.getString(R.string.mars)
                 else -> resources.getString(R.string.earth)
-                    //TODO Уточнить как TextView привязать и менять динамически (aналогично с BottomNavigation)
+                //TODO Уточнить как TextView привязать и менять динамически (aналогично с BottomNavigation)
             }
         }.attach()
     }

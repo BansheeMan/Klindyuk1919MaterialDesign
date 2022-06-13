@@ -46,18 +46,19 @@ class ApiBottomFragment : Fragment() {
             when (item.itemId) {
                 R.id.action_bottom_navigation_earth -> {
                     requireActivity().supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container_view, EarthFragment.newInstance()).commit()
+                        .replace(R.id.fragment_container_view2, EarthFragment.newInstance())
+                        .commit()
                     true
                 }
                 R.id.action_bottom_navigation_system -> {
                     requireActivity().supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container_view, SystemFragment.newInstance())
+                        .replace(R.id.fragment_container_view2, SystemFragment.newInstance())
                         .commit()
                     false // выключает пункт меню
                 }
                 R.id.action_bottom_navigation_mars -> {
                     requireActivity().supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container_view, MarsFragment.newInstance()).commit()
+                        .replace(R.id.fragment_container_view2, MarsFragment.newInstance()).commit()
                     true
                 }
                 else -> {
