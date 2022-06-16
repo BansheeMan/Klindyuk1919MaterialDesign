@@ -1,4 +1,4 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel
+package com.example.klindyuk1919materialdesign230522.view_viewmodel.nasa_requests
 
 import android.app.Application
 import android.util.Log
@@ -8,10 +8,10 @@ import androidx.lifecycle.MutableLiveData
 import com.example.klindyuk1919materialdesign230522.BuildConfig
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.repo.RetrofitImpl
-import com.example.klindyuk1919materialdesign230522.repo.dto.PictureOfTheDayResponseData
-import com.example.klindyuk1919materialdesign230522.utils.FORMAT_DATE
 import com.example.klindyuk1919materialdesign230522.repo.dto.EarthEpicServerResponseData
+import com.example.klindyuk1919materialdesign230522.repo.dto.PictureOfTheDayResponseData
 import com.example.klindyuk1919materialdesign230522.repo.dto.lifs.SputnikServerResponseData
+import com.example.klindyuk1919materialdesign230522.utils.FORMAT_DATE
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

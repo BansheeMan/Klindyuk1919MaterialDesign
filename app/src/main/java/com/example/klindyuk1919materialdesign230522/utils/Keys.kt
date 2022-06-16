@@ -13,6 +13,9 @@ const val LIFS_DEFAULT_LON = 37.33156f
 const val WIKI_DOMAIN = "https://en.wikipedia.org/wiki/"
 const val QUERY_API_KEY = "api_key"
 const val QUERY_DATE = "date"
+
+const val VIDEO = "video"
+const val MAY29 = "2022-05-29" //дата когда видео прихтодило в POD
 const val TODAY = 0
 const val YESTERDAY = -1
 const val TWO_DAYS_AGO = -2

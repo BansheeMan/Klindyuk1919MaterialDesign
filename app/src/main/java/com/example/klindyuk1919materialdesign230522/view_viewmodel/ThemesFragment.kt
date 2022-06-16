@@ -1,4 +1,4 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel.settings
+package com.example.klindyuk1919materialdesign230522.view_viewmodel
 
 import android.content.Context
 import android.content.res.Configuration

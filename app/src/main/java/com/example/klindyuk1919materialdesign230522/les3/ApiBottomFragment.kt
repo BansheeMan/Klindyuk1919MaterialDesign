@@ -1,4 +1,4 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel.les3
+package com.example.klindyuk1919materialdesign230522.les3
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.FragmentApiBottomBinding
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.EarthFragment
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.MarsFragment
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.SystemFragment
+import com.example.klindyuk1919materialdesign230522.les3.planets_fragments.EarthFragment
+import com.example.klindyuk1919materialdesign230522.les3.planets_fragments.MarsFragment
+import com.example.klindyuk1919materialdesign230522.les3.planets_fragments.SystemFragment
 import com.google.android.material.badge.BadgeDrawable
 
 

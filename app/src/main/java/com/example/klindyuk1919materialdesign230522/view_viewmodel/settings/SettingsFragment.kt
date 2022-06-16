@@ -1,11 +1,14 @@
 package com.example.klindyuk1919materialdesign230522.view_viewmodel.settings
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.FragmentSettingsBinding
-import com.example.klindyuk1919materialdesign230522.utils.*
+import com.example.klindyuk1919materialdesign230522.utils.EMPTY
+import com.example.klindyuk1919materialdesign230522.utils.THEMES
 import com.google.android.material.tabs.TabLayoutMediator
 
 

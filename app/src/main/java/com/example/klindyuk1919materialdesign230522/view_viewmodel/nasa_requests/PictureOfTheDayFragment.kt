@@ -1,8 +1,9 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel.nasaRequestFragments
+package com.example.klindyuk1919materialdesign230522.view_viewmodel.nasa_requests
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +16,6 @@ import coil.transform.CircleCropTransformation
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.FragmentPictureOfTheDayBinding
 import com.example.klindyuk1919materialdesign230522.utils.*
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.NasaRequestViewModel
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.NasaRequestAppState
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
 
@@ -43,7 +42,7 @@ class PictureOfTheDayFragment : Fragment() {
         viewModel.getLiveData().observe(viewLifecycleOwner) {
             renderData(it)
         }
-        viewModel.sendRequestPOD(TODAY)
+        viewModel.sendRequestPOD(YESTERDAY)
         findWiki()
         stateBottomSheetBehavior()
         switchChipGroup()
@@ -54,7 +53,7 @@ class PictureOfTheDayFragment : Fragment() {
             val chip = group.findViewById<Chip>(position)
             when (chip?.tag) {
                 "chip1" -> {
-                    viewModel.sendRequestPOD(TODAY)
+                    viewModel.sendRequestPOD(YESTERDAY)
                 }
                 "chip2" -> {
                     viewModel.sendRequestPOD(YESTERDAY)
@@ -69,7 +68,8 @@ class PictureOfTheDayFragment : Fragment() {
     private fun stateBottomSheetBehavior() {
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.hackBsl.bottomSheetContainer)
         bottomSheetBehavior.state =
-            BottomSheetBehavior.STATE_COLLAPSED //берет стартовую точку от app:behavior_peekHeight в XML
+            BottomSheetBehavior.STATE_HIDDEN //берет стартовую точку от app:behavior_peekHeight в XML
+        bottomSheetBehavior.peekHeight *= 3
     }
 
     private fun findWiki() {
@@ -103,16 +103,36 @@ class PictureOfTheDayFragment : Fragment() {
                     error.errorView.visibility = View.GONE
                     successView.visibility = View.VISIBLE
                     imageView.scaleType = ImageView.ScaleType.FIT_CENTER
-                    imageView.load(appState.pictureOfTheDayResponseData.url) {
-                        placeholder(R.drawable.hello)
-                        transformations(CircleCropTransformation())
-                        crossfade(2000) //плавный переход, изменение непрозрачности
-                        scale(Scale.FILL) //заполняет картинку на весь ImageView, решает проблему c crossfade()
+                    if(appState.pictureOfTheDayResponseData.mediaType == VIDEO) {
+                        val url = appState.pictureOfTheDayResponseData.hdurl
+                        if (url.isNullOrEmpty()) {
+                            val videoUrl = appState.pictureOfTheDayResponseData.url
+                            showAVideoUrl(videoUrl)
+                        }
+                    } else {
+                        imageView.load(appState.pictureOfTheDayResponseData.url) {
+                            placeholder(R.drawable.hello)
+                            transformations(CircleCropTransformation())
+                            crossfade(2000) //плавный переход, изменение непрозрачности
+                            scale(Scale.FILL) //заполняет картинку на весь ImageView, решает проблему c crossfade()
+                        }
                     }
                     hackBsl.title.text = appState.pictureOfTheDayResponseData.title
                     hackBsl.explanation.text = appState.pictureOfTheDayResponseData.explanation
                 }
             }
+        }
+    }
+
+    private fun showAVideoUrl(videoUrl: String) = with(binding) {
+        imageView.visibility = View.GONE
+        videoOfTheDay.visibility = View.VISIBLE
+        videoOfTheDay.text = String.format(getString(R.string.video_today), videoUrl)
+        videoOfTheDay.setOnClickListener {
+            val i = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse(videoUrl)
+            }
+            startActivity(i)
         }
     }
 

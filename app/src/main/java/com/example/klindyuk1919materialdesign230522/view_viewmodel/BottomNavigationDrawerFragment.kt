@@ -1,4 +1,4 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel.nasaRequestFragments
+package com.example.klindyuk1919materialdesign230522.view_viewmodel
 
 import android.os.Bundle
 import android.util.Log
@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.BottomNavigationDrawerLayoutBinding
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.les3.ApiBottomFragment
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.les3.Les3VPFragment
+import com.example.klindyuk1919materialdesign230522.les3.ApiBottomFragment
+import com.example.klindyuk1919materialdesign230522.les3.Les3VPFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {

@@ -1,16 +1,19 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel.les3
+package com.example.klindyuk1919materialdesign230522.les3
 
+import android.content.res.Resources
 import androidx.fragment.app.Fragment
-import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import com.example.klindyuk1919materialdesign230522.R
+import com.example.klindyuk1919materialdesign230522.les3.planets_fragments.EarthFragment
+import com.example.klindyuk1919materialdesign230522.les3.planets_fragments.MarsFragment
+import com.example.klindyuk1919materialdesign230522.les3.planets_fragments.SystemFragment
 import com.example.klindyuk1919materialdesign230522.utils.EARTH
 import com.example.klindyuk1919materialdesign230522.utils.MARS
 import com.example.klindyuk1919materialdesign230522.utils.SOLAR_SYSTEM
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.EarthFragment
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.MarsFragment
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.planets_fragments.SystemFragment
 
-class ViewPager2Adapter(fa: Fragment) : FragmentStateAdapter(fa) {
-
+class ViewPagerAdapter(fm: FragmentManager, val resources: Resources) :
+    FragmentStatePagerAdapter(fm) {
 
     private val fragments = arrayOf(
         SystemFragment.newInstance(),
@@ -18,22 +21,11 @@ class ViewPager2Adapter(fa: Fragment) : FragmentStateAdapter(fa) {
         EarthFragment.newInstance()
     )
 
-    override fun getItemCount(): Int {
+    override fun getCount(): Int {
         return fragments.size
     }
 
-    override fun createFragment(position: Int): Fragment {
-        return when (position) {
-            EARTH -> EarthFragment.newInstance()
-            SOLAR_SYSTEM -> SystemFragment.newInstance()
-            MARS -> MarsFragment.newInstance()
-            else -> {
-                EarthFragment.newInstance()
-            }
-        }
-    }
-
-    /*override fun getItem(position: Int): Fragment {
+    override fun getItem(position: Int): Fragment {
         return when (position) {
             EARTH -> EarthFragment.newInstance()
             SOLAR_SYSTEM -> SystemFragment.newInstance()
@@ -51,5 +43,5 @@ class ViewPager2Adapter(fa: Fragment) : FragmentStateAdapter(fa) {
             MARS -> resources.getString(R.string.mars)
             else -> resources.getString(R.string.earth)
         }
-    }*/
+    }
 }

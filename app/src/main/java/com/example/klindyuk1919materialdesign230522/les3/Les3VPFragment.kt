@@ -1,4 +1,4 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel.les3
+package com.example.klindyuk1919materialdesign230522.les3
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -5,6 +5,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.klindyuk1919materialdesign230522.utils.EMPTY
 import com.example.klindyuk1919materialdesign230522.utils.THEMES
 import com.example.klindyuk1919materialdesign230522.view_viewmodel.EmptyFragment
+import com.example.klindyuk1919materialdesign230522.view_viewmodel.ThemesFragment
 
 class SettingsViewPager2Adapter(fa: Fragment) : FragmentStateAdapter(fa) {
 

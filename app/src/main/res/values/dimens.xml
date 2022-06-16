@@ -8,4 +8,5 @@
     <dimen name="size_margin_bottom_navigation">8dp</dimen>
     <dimen name="size_margin_chipgroup">90dp</dimen>
     <dimen name="size_text_rb_themes">40sp</dimen>
+    <dimen name="size_20dp">20dp</dimen>
 </resources>

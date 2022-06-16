@@ -1,4 +1,4 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel.nasaRequestFragments
+package com.example.klindyuk1919materialdesign230522.view_viewmodel.nasa_requests
 
 import android.content.Intent
 import android.net.Uri
@@ -15,8 +15,6 @@ import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.FragmentEpicBinding
 import com.example.klindyuk1919materialdesign230522.utils.WIKI_DOMAIN
 import com.example.klindyuk1919materialdesign230522.utils.showSnackBar
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.NasaRequestAppState
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.NasaRequestViewModel
 
 class EpicFragment : Fragment() {
 

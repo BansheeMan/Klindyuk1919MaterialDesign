@@ -1,9 +1,9 @@
 package com.example.klindyuk1919materialdesign230522.repo
 
-import com.example.klindyuk1919materialdesign230522.repo.dto.PictureOfTheDayResponseData
-import com.example.klindyuk1919materialdesign230522.utils.NASA_DOMAIN
 import com.example.klindyuk1919materialdesign230522.repo.dto.EarthEpicServerResponseData
+import com.example.klindyuk1919materialdesign230522.repo.dto.PictureOfTheDayResponseData
 import com.example.klindyuk1919materialdesign230522.repo.dto.lifs.SputnikServerResponseData
+import com.example.klindyuk1919materialdesign230522.utils.NASA_DOMAIN
 import com.google.gson.GsonBuilder
 import retrofit2.Callback
 import retrofit2.Retrofit

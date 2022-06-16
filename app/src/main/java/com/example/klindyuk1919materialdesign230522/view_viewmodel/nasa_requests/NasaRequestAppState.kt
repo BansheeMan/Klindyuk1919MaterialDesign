@@ -1,7 +1,7 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel
+package com.example.klindyuk1919materialdesign230522.view_viewmodel.nasa_requests
 
-import com.example.klindyuk1919materialdesign230522.repo.dto.PictureOfTheDayResponseData
 import com.example.klindyuk1919materialdesign230522.repo.dto.EarthEpicServerResponseData
+import com.example.klindyuk1919materialdesign230522.repo.dto.PictureOfTheDayResponseData
 import com.example.klindyuk1919materialdesign230522.repo.dto.lifs.SputnikServerResponseData
 
 sealed class NasaRequestAppState {

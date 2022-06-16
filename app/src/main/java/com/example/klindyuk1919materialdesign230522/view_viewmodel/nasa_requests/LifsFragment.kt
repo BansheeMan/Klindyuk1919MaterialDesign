@@ -1,4 +1,4 @@
-package com.example.klindyuk1919materialdesign230522.view_viewmodel.nasaRequestFragments
+package com.example.klindyuk1919materialdesign230522.view_viewmodel.nasa_requests
 
 import android.content.Intent
 import android.net.Uri
@@ -10,12 +10,9 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
-import coil.size.Scale
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.FragmentLifsBinding
 import com.example.klindyuk1919materialdesign230522.utils.*
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.NasaRequestAppState
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.NasaRequestViewModel
 
 class LifsFragment : Fragment() {
 

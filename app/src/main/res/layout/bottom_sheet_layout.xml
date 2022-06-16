@@ -7,13 +7,17 @@
     android:layout_height="match_parent"
     android:background="?backgroundBSHL"
     app:behavior_hideable="false"
-    app:behavior_peekHeight="@dimen/size_behavior_peek_height"
+    app:behavior_peekHeight="?actionBarSize"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    <!--
+    app:behavior_peekHeight="75dp"
+-->
+
 
     <View
         android:id="@+id/bottom_sheet_line"
         android:layout_width="25dp"
-        android:layout_height="1dp"
+        android:layout_height="5dp"
         android:layout_marginTop="5dp"
         android:background="?view_point_BSHL"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +27,7 @@
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/anton"
         android:paddingStart="10dp"

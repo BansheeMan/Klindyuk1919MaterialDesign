@@ -1,9 +1,9 @@
 package com.example.klindyuk1919materialdesign230522.repo
 
-import com.example.klindyuk1919materialdesign230522.repo.dto.PictureOfTheDayResponseData
-import com.example.klindyuk1919materialdesign230522.utils.*
 import com.example.klindyuk1919materialdesign230522.repo.dto.EarthEpicServerResponseData
+import com.example.klindyuk1919materialdesign230522.repo.dto.PictureOfTheDayResponseData
 import com.example.klindyuk1919materialdesign230522.repo.dto.lifs.SputnikServerResponseData
+import com.example.klindyuk1919materialdesign230522.utils.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
