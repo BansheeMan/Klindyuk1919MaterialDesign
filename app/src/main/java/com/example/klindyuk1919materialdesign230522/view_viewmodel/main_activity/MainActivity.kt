@@ -3,9 +3,9 @@ package com.example.klindyuk1919materialdesign230522.view_viewmodel.main_activit
 import android.os.Bundle
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.ActivityMainBinding
-import com.example.klindyuk1919materialdesign230522.les3.Les3VPFragment
+import com.example.klindyuk1919materialdesign230522.hw3.Les3VPFragment
+import com.example.klindyuk1919materialdesign230522.hw4.WikiFragment
 import com.example.klindyuk1919materialdesign230522.utils.BUNDLE_KEY_BN
-import com.example.klindyuk1919materialdesign230522.view_viewmodel.nasa_requests.EpicFragment
 import com.example.klindyuk1919materialdesign230522.view_viewmodel.nasa_requests.LifsFragment
 import com.example.klindyuk1919materialdesign230522.view_viewmodel.nasa_requests.PictureOfTheDayFragment
 import com.example.klindyuk1919materialdesign230522.view_viewmodel.settings.SettingsFragment
@@ -46,11 +46,11 @@ class MainActivity : ThemesChanger() {
                         ).commit()
                     true
                 }
-                R.id.action_bottom_navigation_epic -> {
+                R.id.action_bottom_navigation_hw4 -> {                              //HW
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.activity_container_view, EpicFragment.newInstance())
+                        .replace(R.id.activity_container_view, WikiFragment.newInstance())
                         .commit()
-                    currentItem = R.id.action_bottom_navigation_epic
+                    currentItem = R.id.action_bottom_navigation_hw4
                     true
                 }
                 R.id.action_bottom_navigation_lifs -> {

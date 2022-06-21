@@ -1,10 +1,10 @@
-package com.example.klindyuk1919materialdesign230522.les3
+package com.example.klindyuk1919materialdesign230522.hw3
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.klindyuk1919materialdesign230522.les3.planets_fragments.EarthFragment
-import com.example.klindyuk1919materialdesign230522.les3.planets_fragments.MarsFragment
-import com.example.klindyuk1919materialdesign230522.les3.planets_fragments.SystemFragment
+import com.example.klindyuk1919materialdesign230522.hw3.planets_fragments.EarthFragment
+import com.example.klindyuk1919materialdesign230522.hw3.planets_fragments.MarsFragment
+import com.example.klindyuk1919materialdesign230522.hw3.planets_fragments.SystemFragment
 import com.example.klindyuk1919materialdesign230522.utils.EARTH
 import com.example.klindyuk1919materialdesign230522.utils.MARS
 import com.example.klindyuk1919materialdesign230522.utils.SOLAR_SYSTEM

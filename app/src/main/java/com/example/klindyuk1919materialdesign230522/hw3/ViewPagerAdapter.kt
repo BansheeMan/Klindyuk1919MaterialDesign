@@ -1,13 +1,13 @@
-package com.example.klindyuk1919materialdesign230522.les3
+package com.example.klindyuk1919materialdesign230522.hw3
 
 import android.content.res.Resources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.example.klindyuk1919materialdesign230522.R
-import com.example.klindyuk1919materialdesign230522.les3.planets_fragments.EarthFragment
-import com.example.klindyuk1919materialdesign230522.les3.planets_fragments.MarsFragment
-import com.example.klindyuk1919materialdesign230522.les3.planets_fragments.SystemFragment
+import com.example.klindyuk1919materialdesign230522.hw3.planets_fragments.EarthFragment
+import com.example.klindyuk1919materialdesign230522.hw3.planets_fragments.MarsFragment
+import com.example.klindyuk1919materialdesign230522.hw3.planets_fragments.SystemFragment
 import com.example.klindyuk1919materialdesign230522.utils.EARTH
 import com.example.klindyuk1919materialdesign230522.utils.MARS
 import com.example.klindyuk1919materialdesign230522.utils.SOLAR_SYSTEM

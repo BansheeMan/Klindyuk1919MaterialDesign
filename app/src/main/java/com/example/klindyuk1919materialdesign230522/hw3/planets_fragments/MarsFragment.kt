@@ -1,4 +1,4 @@
-package com.example.klindyuk1919materialdesign230522.les3.planets_fragments
+package com.example.klindyuk1919materialdesign230522.hw3.planets_fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

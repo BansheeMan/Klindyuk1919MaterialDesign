@@ -12,7 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.klindyuk1919materialdesign230522.R
 import com.example.klindyuk1919materialdesign230522.databinding.FragmentLifsBinding
-import com.example.klindyuk1919materialdesign230522.utils.*
+import com.example.klindyuk1919materialdesign230522.utils.LIFS_DEFAULT_LAT
+import com.example.klindyuk1919materialdesign230522.utils.LIFS_DEFAULT_LON
+import com.example.klindyuk1919materialdesign230522.utils.WIKI_DOMAIN
+import com.example.klindyuk1919materialdesign230522.utils.showSnackBar
 
 class LifsFragment : Fragment() {
 

@@ -3,7 +3,6 @@ package com.example.klindyuk1919materialdesign230522.view_viewmodel.nasa_request
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -103,7 +102,7 @@ class PictureOfTheDayFragment : Fragment() {
                     error.errorView.visibility = View.GONE
                     successView.visibility = View.VISIBLE
                     imageView.scaleType = ImageView.ScaleType.FIT_CENTER
-                    if(appState.pictureOfTheDayResponseData.mediaType == VIDEO) {
+                    if (appState.pictureOfTheDayResponseData.mediaType == VIDEO) {
                         val url = appState.pictureOfTheDayResponseData.hdurl
                         if (url.isNullOrEmpty()) {
                             val videoUrl = appState.pictureOfTheDayResponseData.url
