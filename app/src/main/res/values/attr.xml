@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="myColor" format="reference"/>
-    <attr name="backgroundBSHL" format="reference"/>
-    <attr name="view_point_BSHL" format="reference"/>
+    <attr name="myColor" format="reference" />
+    <attr name="backgroundBSHL" format="reference" />
+    <attr name="view_point_BSHL" format="reference" />
 </resources>

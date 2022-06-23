@@ -44,7 +44,7 @@
         app:layout_anchorGravity="start|top"
         app:layout_collapseMode="pin"
         app:menu="@menu/menu_bottom_bar_2"
-        app:layout_behavior=".hw4.behavior.AlfaBehavior"
+        app:layout_behavior=".hw4.behavior.AlfaAndSlideBehavior"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
 

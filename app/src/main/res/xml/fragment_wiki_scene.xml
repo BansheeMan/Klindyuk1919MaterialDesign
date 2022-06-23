@@ -7,15 +7,16 @@
         <!--<OnSwipe motion:targetId="@+id/inputLayout"
             motion:touchAnchorSide="top"
             motion:dragDirection="dragStart"/>-->
-        <OnClick motion:targetId="@+id/wiki_button"/>
+        <OnClick motion:targetId="@+id/wiki_button" />
     </Transition>
 
     <Transition
         motion:constraintSetStart="@layout/fragment_wiki_end"
         motion:constraintSetEnd="@layout/fragment_wiki"
         motion:duration="1000">
-        <OnSwipe motion:targetId="@+id/inputLayout"
+        <OnSwipe
+            motion:targetId="@+id/inputLayout"
             motion:touchAnchorSide="top"
-            motion:dragDirection="dragEnd"/>
+            motion:dragDirection="dragEnd" />
     </Transition>
 </MotionScene>

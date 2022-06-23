@@ -37,7 +37,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <com.example.klindyuk1919materialdesign230522.utils.EquilateralImageView
+        <com.example.materialdesign.utils.EquilateralImageView
             android:id="@+id/image_view_lifs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

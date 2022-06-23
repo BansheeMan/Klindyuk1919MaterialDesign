@@ -13,12 +13,12 @@ android {
     buildTypes.each {
         Properties properties = new Properties()
         properties.load(project.rootProject.file("app.properties").newDataInputStream())
-        def nasaApiKey  = properties.getProperty("NASA_API_KEY", "")
+        def nasaApiKey = properties.getProperty("NASA_API_KEY", "")
         it.buildConfigField "String", "NASA_API_KEY", nasaApiKey
     }
 
     defaultConfig {
-        applicationId "com.example.klindyuk1919materialdesign230522"
+        applicationId "com.example.materialdesign"
         minSdk 24
         targetSdk 32
         versionCode 1
