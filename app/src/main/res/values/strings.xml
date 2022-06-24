@@ -139,4 +139,15 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"</string>
     <string name="title">Title</string>
+
+    <string name="sw_decription">
+        \t\t Шел третий курс по Андроид, многие из нас уже начали выгорать,
+        однако, наш мастер-джедай, Андрей, не сомневался,
+        что каждый из его падаванов рано или поздно найдет свой путь к силе и устроится на работу,
+        тем самым вдохновля новые умы, на борьбу с темной стороной, ленью и страхом первых собесов…\n\n</string>
+    <string name="episode_iii">EPISODE III</string>
+    <string name="material_design">MATERIAL DESIGN</string>
+    <string name="hw5">hw5</string>
+    <string name="start">START</string>
+    <string name="sw_begin">\t\tСовсем-совсем недавно, буквально неделю назад…</string>
 </resources>

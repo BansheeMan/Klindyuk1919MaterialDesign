@@ -5,6 +5,7 @@ import com.example.materialdesign.R
 import com.example.materialdesign.databinding.ActivityMainBinding
 import com.example.materialdesign.hw3.Les3VPFragment
 import com.example.materialdesign.hw4.WikiFragment
+import com.example.materialdesign.hw5.AnimationFragment
 import com.example.materialdesign.utils.BUNDLE_KEY_BN
 import com.example.materialdesign.view_viewmodel.nasa_requests.LifsFragment
 import com.example.materialdesign.view_viewmodel.nasa_requests.PictureOfTheDayFragment
@@ -46,11 +47,11 @@ class MainActivity : ThemesChanger() {
                         ).commit()
                     true
                 }
-                R.id.action_bottom_navigation_hw4 -> {                              //HW
+                R.id.action_bottom_navigation_hw5 -> {                              //HW
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.activity_container_view, WikiFragment.newInstance())
+                        .replace(R.id.activity_container_view, AnimationFragment.newInstance())
                         .commit()
-                    currentItem = R.id.action_bottom_navigation_hw4
+                    currentItem = R.id.action_bottom_navigation_hw5
                     true
                 }
                 R.id.action_bottom_navigation_lifs -> {

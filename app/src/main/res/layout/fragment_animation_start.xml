@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/animationContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cosmos"
+    tools:context=".view_viewmodel.ThemesFragment">
+
+    <FrameLayout
+        android:id="@+id/frameBtn"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/swBtn"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/black"
+            android:text="@string/start"
+            android:backgroundTint="@color/yellow"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/tvSw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/teal_200"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:padding="10dp"
+        android:alpha="0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/sw_begin" />
+
+    <LinearLayout
+        android:id="@+id/swLinear"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitleEpisode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/episode_iii"
+            android:lines="2"
+            android:gravity="center"
+            android:rotationX="20"
+            android:textColor="@color/yellow"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/material_design"
+            android:gravity="center"
+            android:rotationX="20"
+            android:textColor="@color/yellow"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="@string/sw_decription"
+            android:layout_marginHorizontal="20dp"
+            android:rotationX="5"
+            android:textColor="@color/yellow"
+            android:textSize="28sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,9 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
+import com.example.materialdesign.R
 import com.example.materialdesign.databinding.FragmentWikiBinding
 import com.example.materialdesign.utils.WIKI_DOMAIN
+
 
 class WikiFragment : Fragment() {
 
