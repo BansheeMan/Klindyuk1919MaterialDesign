@@ -35,6 +35,7 @@
         android:textColor="#000"
         android:textSize="@dimen/size_text_bsm_title"
         android:textStyle="bold"
+        android:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_line"

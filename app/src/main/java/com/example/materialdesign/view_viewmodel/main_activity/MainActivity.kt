@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.example.materialdesign.R
 import com.example.materialdesign.databinding.ActivityMainBinding
 import com.example.materialdesign.hw3.Les3VPFragment
-import com.example.materialdesign.hw4.WikiFragment
 import com.example.materialdesign.hw5.AnimationFragment
 import com.example.materialdesign.utils.BUNDLE_KEY_BN
 import com.example.materialdesign.view_viewmodel.nasa_requests.LifsFragment
@@ -49,6 +48,8 @@ class MainActivity : ThemesChanger() {
                 }
                 R.id.action_bottom_navigation_hw5 -> {                              //HW
                     supportFragmentManager.beginTransaction()
+                        .setCustomAnimations(R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out)
+                        .addToBackStack("")
                         .replace(R.id.activity_container_view, AnimationFragment.newInstance())
                         .commit()
                     currentItem = R.id.action_bottom_navigation_hw5

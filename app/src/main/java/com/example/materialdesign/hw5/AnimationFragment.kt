@@ -1,5 +1,6 @@
 package com.example.materialdesign.hw5
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -21,8 +22,6 @@ class AnimationFragment : Fragment() {
     private val binding: FragmentAnimationStartBinding
         get() = _binding!!
 
-    var isOpen: Boolean = false
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,6 +33,16 @@ class AnimationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initStartBTN()
+        binding.secondFragmentBtn.setOnClickListener {
+            parentFragmentManager.beginTransaction().addToBackStack("")
+                .setCustomAnimations(
+                    R.anim.to_left_in,
+                    R.anim.to_left_out,
+                    R.anim.to_right_in,
+                    R.anim.to_right_out
+                )
+                .replace(R.id.activity_container_view, AnimationFragmentTwo.newInstance()).commit()
+        }
     }
 
     private fun initStartBTN() {
@@ -60,6 +69,11 @@ class AnimationFragment : Fragment() {
                 constraintSet.clone(requireContext(), R.layout.fragment_animation_end)
                 constraintSet.applyTo(binding.animationContainer)
             }, 4000)
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                ObjectAnimator.ofFloat(binding.secondFragmentBtn, View.TRANSLATION_Y, 0f, -435f)
+                    .setDuration(2000).start()
+            }, 13000)
         }
     }
 

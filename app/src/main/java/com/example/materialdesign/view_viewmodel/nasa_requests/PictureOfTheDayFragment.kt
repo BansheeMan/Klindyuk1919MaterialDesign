@@ -68,7 +68,7 @@ class PictureOfTheDayFragment : Fragment() {
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.hackBsl.bottomSheetContainer)
         bottomSheetBehavior.state =
             BottomSheetBehavior.STATE_HIDDEN //берет стартовую точку от app:behavior_peekHeight в XML
-        bottomSheetBehavior.peekHeight *= 3
+        bottomSheetBehavior.peekHeight *= 2
     }
 
     private fun findWiki() {

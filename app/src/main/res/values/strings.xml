@@ -142,12 +142,16 @@
 
     <string name="sw_decription">
         \t\t Шел третий курс по Андроид, многие из нас уже начали выгорать,
-        однако, наш мастер-джедай, Андрей, не сомневался,
+        однако, наш мастер-джедай, не сомневался,
         что каждый из его падаванов рано или поздно найдет свой путь к силе и устроится на работу,
         тем самым вдохновля новые умы, на борьбу с темной стороной, ленью и страхом первых собесов…\n\n</string>
     <string name="episode_iii">EPISODE III</string>
     <string name="material_design">MATERIAL DESIGN</string>
     <string name="hw5">hw5</string>
     <string name="start">START</string>
-    <string name="sw_begin">\t\tСовсем-совсем недавно, буквально неделю назад…</string>
+    <string name="sw_begin">\t\tСовсем-совсем недавно, буквально пару недель назад…</string>
+    <string name="second_fragment">SECOND FRAGMENT</string>
+    <string name="fabforoptionmene">FabForOptionMene</string>
+    <string name="option_2">Option 2</string>
+    <string name="option_1">Option 1</string>
 </resources>
