@@ -25,7 +25,8 @@ class AnimationFragmentTwo : Fragment() {
         get() = _binding!!
 
     private val duration = 1000L
-    private var isOpen: Boolean = false
+    private var isOpenImageView: Boolean = false
+    private var isOpenFab: Boolean = false
 
 
     override fun onCreateView(
@@ -46,7 +47,7 @@ class AnimationFragmentTwo : Fragment() {
 
     private fun imageViewZoom() {
         binding.imageView.setOnClickListener {
-            isOpen = !isOpen
+            isOpenImageView = !isOpenImageView
             val trCB = ChangeBounds()
             val trImage = ChangeImageTransform()
             trCB.duration = 3000
@@ -57,14 +58,14 @@ class AnimationFragmentTwo : Fragment() {
             }
             TransitionManager.beginDelayedTransition(binding.root, trSet)
 
-            binding.imageView.scaleType = if (isOpen) {
+            binding.imageView.scaleType = if (isOpenImageView) {
                 ImageView.ScaleType.CENTER_CROP
             } else {
                 ImageView.ScaleType.CENTER_INSIDE
             }
 
             val params = (binding.imageView.layoutParams as FrameLayout.LayoutParams)
-            params.height = if (isOpen) {
+            params.height = if (isOpenImageView) {
                 FrameLayout.LayoutParams.MATCH_PARENT
             } else {
                 FrameLayout.LayoutParams.WRAP_CONTENT
@@ -75,8 +76,8 @@ class AnimationFragmentTwo : Fragment() {
 
     private fun initFab() {
         binding.fab.setOnClickListener {
-            isOpen = !isOpen
-            if (isOpen) {
+            isOpenFab = !isOpenFab
+            if (isOpenFab) {
                 openFab()
             } else {
                 closeFab()
