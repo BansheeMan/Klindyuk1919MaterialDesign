@@ -1,4 +1,4 @@
-package com.example.materialdesign.view_viewmodel.settings
+package com.example.materialdesign.viewviewmodel.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater

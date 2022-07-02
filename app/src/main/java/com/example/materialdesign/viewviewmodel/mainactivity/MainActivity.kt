@@ -1,4 +1,4 @@
-package com.example.materialdesign.view_viewmodel.main_activity
+package com.example.materialdesign.viewviewmodel.mainactivity
 
 import android.os.Bundle
 import com.example.materialdesign.R
@@ -6,9 +6,9 @@ import com.example.materialdesign.databinding.ActivityMainBinding
 import com.example.materialdesign.hw3.Les3VPFragment
 import com.example.materialdesign.hw5.AnimationFragment
 import com.example.materialdesign.utils.BUNDLE_KEY_BN
-import com.example.materialdesign.view_viewmodel.nasa_requests.LifsFragment
-import com.example.materialdesign.view_viewmodel.nasa_requests.PictureOfTheDayFragment
-import com.example.materialdesign.view_viewmodel.settings.SettingsFragment
+import com.example.materialdesign.viewviewmodel.nasarequests.LifsFragment
+import com.example.materialdesign.viewviewmodel.nasarequests.PictureOfTheDayFragment
+import com.example.materialdesign.viewviewmodel.settings.SettingsFragment
 import com.google.android.material.badge.BadgeDrawable
 
 

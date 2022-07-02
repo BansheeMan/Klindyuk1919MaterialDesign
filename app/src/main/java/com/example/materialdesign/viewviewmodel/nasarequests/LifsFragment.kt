@@ -1,4 +1,4 @@
-package com.example.materialdesign.view_viewmodel.nasa_requests
+package com.example.materialdesign.viewviewmodel.nasarequests
 
 import android.content.Intent
 import android.net.Uri
@@ -10,16 +10,17 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
-import com.example.materialdesign.BuildConfig
 import com.example.materialdesign.R
-import com.example.materialdesign.databinding.FragmentEpicBinding
+import com.example.materialdesign.databinding.FragmentLifsBinding
+import com.example.materialdesign.utils.LIFS_DEFAULT_LAT
+import com.example.materialdesign.utils.LIFS_DEFAULT_LON
 import com.example.materialdesign.utils.WIKI_DOMAIN
 import com.example.materialdesign.utils.showSnackBar
 
-class EpicFragment : Fragment() {
+class LifsFragment : Fragment() {
 
-    private var _binding: FragmentEpicBinding? = null
-    private val binding: FragmentEpicBinding
+    private var _binding: FragmentLifsBinding? = null
+    private val binding: FragmentLifsBinding
         get() = _binding!!
 
     private val viewModel: NasaRequestViewModel by lazy {
@@ -30,7 +31,7 @@ class EpicFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentEpicBinding.inflate(inflater, container, false)
+        _binding = FragmentLifsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -39,8 +40,17 @@ class EpicFragment : Fragment() {
         viewModel.getLiveData().observe(viewLifecycleOwner) {
             renderData(it)
         }
-        viewModel.sendRequestEPIC()
+        viewModel.sendRequestLIFS()
         findWiki()
+    }
+
+
+    private fun findWiki() {
+        binding.inputLayoutLifs.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("$WIKI_DOMAIN${binding.inputEditTextLifs.text.toString()}")
+            })
+        }
     }
 
     private fun renderData(appState: NasaRequestAppState) {
@@ -48,7 +58,7 @@ class EpicFragment : Fragment() {
             is NasaRequestAppState.Error -> {
                 with(binding) {
                     val trouble = appState.error.message
-                    successViewEpic.visibility = View.GONE
+                    successViewLifs.visibility = View.GONE
                     error.errorView.visibility = View.VISIBLE
                     error.errorView.showSnackBar(trouble, R.string.exit) {
                         requireActivity().finish()
@@ -57,35 +67,25 @@ class EpicFragment : Fragment() {
             }
             is NasaRequestAppState.Loading -> {
                 with(binding) {
-                    imageViewEpic.scaleType = ImageView.ScaleType.CENTER
-                    imageViewEpic.load(R.drawable.progress_animation)
+                    imageViewLifs.scaleType = ImageView.ScaleType.CENTER
+                    imageViewLifs.load(R.drawable.progress_animation)
                 }
             }
-            is NasaRequestAppState.SuccessEPIC -> {
+            is NasaRequestAppState.SuccessLIFS -> {
                 with(binding) {
                     error.errorView.visibility = View.GONE
-                    successViewEpic.visibility = View.VISIBLE
-                    imageViewEpic.scaleType = ImageView.ScaleType.FIT_CENTER
-                    val strDate = appState.epic.last().date.split(" ").first()
-                    val image = appState.epic.last().image
-                    val url = "https://api.nasa.gov/EPIC/archive/natural/" +
-                            strDate.replace("-", "/", true) +
-                            "/png/" +
-                            "$image" +
-                            ".png?api_key=${BuildConfig.NASA_API_KEY}"
-                    imageViewEpic.load(url)
-                    textviewEpicOne.text = appState.epic.last().caption
-                    textviewEpicTwo.text = appState.epic.last().date
+                    successViewLifs.visibility = View.VISIBLE
+                    imageViewLifs.scaleType = ImageView.ScaleType.FIT_CENTER
+                    imageViewLifs.load(appState.lifs.url)
+                    textviewLifsOne.text = appState.lifs.resource.planet
+                    textviewLifsTwo.text = appState.lifs.date
+                    textviewLifsThree.text = String.format(
+                        getString(R.string.coordinate_lat_lon),
+                        LIFS_DEFAULT_LAT,
+                        LIFS_DEFAULT_LON
+                    )
                 }
             }
-        }
-    }
-
-    private fun findWiki() {
-        binding.inputLayoutEpic.setEndIconOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("$WIKI_DOMAIN${binding.inputEditTextEpic.text.toString()}")
-            })
         }
     }
 
@@ -96,6 +96,6 @@ class EpicFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = EpicFragment()
+        fun newInstance() = LifsFragment()
     }
 }

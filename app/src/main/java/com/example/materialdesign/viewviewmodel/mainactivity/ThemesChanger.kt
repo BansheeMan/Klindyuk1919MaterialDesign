@@ -1,4 +1,4 @@
-package com.example.materialdesign.view_viewmodel.main_activity
+package com.example.materialdesign.viewviewmodel.mainactivity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -1,11 +1,11 @@
-package com.example.materialdesign.view_viewmodel.settings
+package com.example.materialdesign.viewviewmodel.settings
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.materialdesign.utils.EMPTY
 import com.example.materialdesign.utils.THEMES
-import com.example.materialdesign.view_viewmodel.EmptyFragment
-import com.example.materialdesign.view_viewmodel.ThemesFragment
+import com.example.materialdesign.viewviewmodel.EmptyFragment
+import com.example.materialdesign.viewviewmodel.ThemesFragment
 
 class SettingsViewPager2Adapter(fa: Fragment) : FragmentStateAdapter(fa) {
 

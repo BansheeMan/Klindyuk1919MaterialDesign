@@ -1,4 +1,4 @@
-package com.example.materialdesign.view_viewmodel
+package com.example.materialdesign.viewviewmodel
 
 import android.content.Context
 import android.content.res.Configuration
@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import com.example.materialdesign.R
 import com.example.materialdesign.databinding.FragmentThemesBinding
 import com.example.materialdesign.utils.*
-import com.example.materialdesign.view_viewmodel.main_activity.MainActivity
+import com.example.materialdesign.viewviewmodel.mainactivity.MainActivity
 
 
 class ThemesFragment : Fragment(), View.OnClickListener {

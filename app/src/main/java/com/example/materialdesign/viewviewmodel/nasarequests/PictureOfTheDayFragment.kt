@@ -1,4 +1,4 @@
-package com.example.materialdesign.view_viewmodel.nasa_requests
+package com.example.materialdesign.viewviewmodel.nasarequests
 
 import android.content.Intent
 import android.net.Uri
