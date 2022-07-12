@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/ic_wikipedia" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -42,6 +42,16 @@
         app:layout_constraintEnd_toStartOf="@+id/barrier"
         app:layout_constraintStart_toEndOf="@+id/earthImageView"
         app:layout_constraintTop_toTopOf="@+id/earthImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="25dp"
+        android:tint="@color/design_default_color_error"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"

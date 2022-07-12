@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.example.materialdesign.databinding.FragmentRecyclerBinding
-import com.example.myandroidnotes.recycle.Data
 
 class RecyclerFragment : Fragment(), OnListItemClickListener {
 
@@ -16,18 +15,21 @@ class RecyclerFragment : Fragment(), OnListItemClickListener {
     private var _binding: FragmentRecyclerBinding? = null
     private val binding: FragmentRecyclerBinding
         get() = _binding!!
-    lateinit var adapter: RecyclerFragmentAdapter
+    private lateinit var adapter: RecyclerFragmentAdapter
 
     private val list = arrayListOf(
-        Pair(Data("HEADER", "", TYPE_HEADER), false),
+        Pair(Data("HEADER", "", TYPE_HEADER, 2), false),
         Pair(Data("Earth1", "Earth des", TYPE_EARTH), false),
         Pair(Data("Earth2", "Earth des", TYPE_EARTH), false),
         Pair(Data("Mars3", "Mars des", TYPE_MARS), false),
         Pair(Data("Earth4", "Earth des", TYPE_EARTH), false),
         Pair(Data("Earth5", "Earth des", TYPE_EARTH), false),
         Pair(Data("Earth6", "Earth des", TYPE_EARTH), false),
-        Pair(Data("Mars7", "Mars des", TYPE_MARS), false)
+        Pair(Data("Mars7", "Mars des", TYPE_MARS), false),
+        Pair(Data("Mars66", "Mars des", TYPE_MARS), false),
+        Pair(Data("Mars77", "Mars des", TYPE_MARS), false)
     )
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,8 +61,8 @@ class RecyclerFragment : Fragment(), OnListItemClickListener {
     }
 
     override fun onRemoveBtnClick(position: Int) {
-            list.removeAt(position)
-            adapter.setRemoveToList(list, position)
+        list.removeAt(position)
+        adapter.setRemoveToList(list, position)
     }
 
     override fun onMoveBtnClick(oldPosition: Int, newPosition: Int) {
@@ -78,6 +80,16 @@ class RecyclerFragment : Fragment(), OnListItemClickListener {
                 Toast.LENGTH_SHORT
             ).show()
         }
+    }
+
+    override fun onFavoriteBtnClick(position: Int) {
+        if (list[position].first.weight == 0) {
+            list[position].first.weight = 1
+        } else {
+            list[position].first.weight = 0
+        }
+        list.sortByDescending { it.first.weight }
+        adapter.favoriteItemToList(list)
     }
 
     companion object {

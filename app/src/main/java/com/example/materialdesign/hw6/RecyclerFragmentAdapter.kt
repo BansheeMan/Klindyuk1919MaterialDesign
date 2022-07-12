@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.materialdesign.R
 import com.example.materialdesign.databinding.RecyclerItemEarthBinding
 import com.example.materialdesign.databinding.RecyclerItemHeaderBinding
 import com.example.materialdesign.databinding.RecyclerItemMarsBinding
-import com.example.myandroidnotes.recycle.Data
 
 const val TYPE_EARTH = 1
 const val TYPE_MARS = 2
@@ -36,6 +36,11 @@ class RecyclerFragmentAdapter(private var onListItemClickListener: OnListItemCli
     fun moveItemToList(newList: List<Pair<Data, Boolean>>, oldPosition: Int, newPosition: Int) {
         this.list = newList.toMutableList()
         notifyItemMoved(oldPosition, newPosition)
+    }
+
+    fun favoriteItemToList(newList: List<Pair<Data, Boolean>>) {
+        this.list = newList.toMutableList()
+        notifyDataSetChanged()
     }
 
 
@@ -80,6 +85,10 @@ class RecyclerFragmentAdapter(private var onListItemClickListener: OnListItemCli
         override fun myBind(listItem: Pair<Data, Boolean>) {
             (RecyclerItemMarsBinding.bind(itemView)).apply {
                 title.text = listItem.first.someText
+                if (list[layoutPosition].first.weight == 1)
+                    favorite.setImageResource(R.drawable.favorite) else {
+                    favorite.setImageResource(R.drawable.favorite_border)
+                }
                 addItemImageView.setOnClickListener {
                     onListItemClickListener.onAddBtnClick(layoutPosition)
                 }
@@ -99,6 +108,33 @@ class RecyclerFragmentAdapter(private var onListItemClickListener: OnListItemCli
                     marsDescriptionTextView.visibility =
                         if (list[layoutPosition].second) View.VISIBLE else View.GONE
                     //notifyItemChanged(layoutPosition) // лагает при первом нажатии
+                }
+                favorite.setOnClickListener {
+                    onListItemClickListener.onFavoriteBtnClick(layoutPosition)
+                }
+            }
+        }
+
+        override fun onItemSelected() {
+            itemView.setBackgroundColor(Color.LTGRAY)
+        }
+
+        override fun onItemClear() {
+            itemView.setBackgroundColor(0)
+        }
+    }
+
+    inner class EarthViewHolder(view: View) : BaseViewHolder(view), ItemTouchHelperViewHolder {
+        override fun myBind(listItem: Pair<Data, Boolean>) {
+            (RecyclerItemEarthBinding.bind(itemView)).apply {
+                title.text = listItem.first.someText
+                if (list[layoutPosition].first.weight == 1)
+                    favorite.setImageResource(R.drawable.favorite) else {
+                    favorite.setImageResource(R.drawable.favorite_border)
+                }
+                descriptionTextView.text = listItem.first.someDescription
+                favorite.setOnClickListener {
+                    onListItemClickListener.onFavoriteBtnClick(layoutPosition)
                 }
             }
         }
@@ -135,20 +171,5 @@ class HeaderViewHolder(view: View) : BaseViewHolder(view) {
     }
 }
 
-class EarthViewHolder(view: View) : BaseViewHolder(view), ItemTouchHelperViewHolder {
-    override fun myBind(listItem: Pair<Data, Boolean>) {
-        (RecyclerItemEarthBinding.bind(itemView)).apply {
-            title.text = listItem.first.someText
-            descriptionTextView.text = listItem.first.someDescription
-        }
-    }
 
-    override fun onItemSelected() {
-        itemView.setBackgroundColor(Color.LTGRAY)
-    }
-
-    override fun onItemClear() {
-        itemView.setBackgroundColor(0)
-    }
-}
 

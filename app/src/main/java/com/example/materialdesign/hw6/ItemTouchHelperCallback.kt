@@ -34,7 +34,7 @@ class ItemTouchHelperCallback(private val itemTouchHelperAdapter: ItemTouchHelpe
 
     override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
             when(viewHolder){
-                is EarthViewHolder -> {
+                is RecyclerFragmentAdapter.EarthViewHolder -> {
                     viewHolder.onItemSelected()
                 }
                 is RecyclerFragmentAdapter.MarsViewHolder -> {
@@ -46,7 +46,7 @@ class ItemTouchHelperCallback(private val itemTouchHelperAdapter: ItemTouchHelpe
 
     override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
         when(viewHolder){
-            is EarthViewHolder -> {
+            is RecyclerFragmentAdapter.EarthViewHolder -> {
                 viewHolder.onItemClear()
             }
             is RecyclerFragmentAdapter.MarsViewHolder -> {
