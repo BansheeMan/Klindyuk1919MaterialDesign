@@ -147,11 +147,14 @@
         тем самым вдохновля новые умы, на борьбу с темной стороной, ленью и страхом первых собесов…\n\n</string>
     <string name="episode_iii">EPISODE III</string>
     <string name="material_design">MATERIAL DESIGN</string>
-    <string name="hw5">hw5</string>
+    <string name="hw6">hw6</string>
     <string name="start">START</string>
     <string name="sw_begin">\t\tСовсем-совсем недавно, буквально пару недель назад…</string>
     <string name="second_fragment">SECOND FRAGMENT</string>
     <string name="fabforoptionmene">FabForOptionMene</string>
     <string name="option_2">Option 2</string>
     <string name="option_1">Option 1</string>
+    <string name="textDescription">MarsDescription</string>
+    <string name="header">Заголовок</string>
+    <string name="fab">FAB</string>
 </resources>

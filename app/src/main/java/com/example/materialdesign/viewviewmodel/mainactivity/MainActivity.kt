@@ -4,11 +4,11 @@ import android.os.Bundle
 import com.example.materialdesign.R
 import com.example.materialdesign.databinding.ActivityMainBinding
 import com.example.materialdesign.hw3.Les3VPFragment
-import com.example.materialdesign.hw5.AnimationFragment
 import com.example.materialdesign.utils.BUNDLE_KEY_BN
 import com.example.materialdesign.viewviewmodel.nasarequests.LifsFragment
 import com.example.materialdesign.viewviewmodel.nasarequests.PictureOfTheDayFragment
 import com.example.materialdesign.viewviewmodel.settings.SettingsFragment
+import com.example.materialdesign.hw6.RecyclerFragment
 import com.google.android.material.badge.BadgeDrawable
 
 
@@ -46,13 +46,13 @@ class MainActivity : ThemesChanger() {
                         ).commit()
                     true
                 }
-                R.id.action_bottom_navigation_hw5 -> {                              //HW
+                R.id.action_bottom_navigation_hw6 -> {                              //HW
                     supportFragmentManager.beginTransaction()
                         .setCustomAnimations(R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out)
                         .addToBackStack("")
-                        .replace(R.id.activity_container_view, AnimationFragment.newInstance())
+                        .replace(R.id.activity_container_view, RecyclerFragment.newInstance())
                         .commit()
-                    currentItem = R.id.action_bottom_navigation_hw5
+                    currentItem = R.id.action_bottom_navigation_hw6
                     true
                 }
                 R.id.action_bottom_navigation_lifs -> {
