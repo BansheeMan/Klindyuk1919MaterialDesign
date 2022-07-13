@@ -17,17 +17,19 @@ class RecyclerFragment : Fragment(), OnListItemClickListener {
         get() = _binding!!
     private lateinit var adapter: RecyclerFragmentAdapter
 
+    private var isNewList = false
+
     private val list = arrayListOf(
-        Pair(Data("HEADER", "", TYPE_HEADER, 2), false),
-        Pair(Data("Earth1", "Earth des", TYPE_EARTH), false),
-        Pair(Data("Earth2", "Earth des", TYPE_EARTH), false),
-        Pair(Data("Mars3", "Mars des", TYPE_MARS), false),
-        Pair(Data("Earth4", "Earth des", TYPE_EARTH), false),
-        Pair(Data("Earth5", "Earth des", TYPE_EARTH), false),
-        Pair(Data("Earth6", "Earth des", TYPE_EARTH), false),
-        Pair(Data("Mars7", "Mars des", TYPE_MARS), false),
-        Pair(Data("Mars66", "Mars des", TYPE_MARS), false),
-        Pair(Data("Mars77", "Mars des", TYPE_MARS), false)
+        Pair(Data(0,"HEADER", "", TYPE_HEADER, 2), false),
+        Pair(Data(1,"Earth", "Earth des", TYPE_EARTH), false),
+        Pair(Data(2,"Earth", "Earth des", TYPE_EARTH), false),
+        Pair(Data(3,"Mars", "Mars des", TYPE_MARS), false),
+        Pair(Data(4,"Mars", "Mars des", TYPE_MARS), false),
+        Pair(Data(5,"Mars", "Mars des", TYPE_MARS), false),
+        Pair(Data(6,"Earth", "Earth des", TYPE_EARTH), false),
+        Pair(Data(7,"Earth", "Earth des", TYPE_EARTH), false),
+        Pair(Data(8,"Earth", "Earth des", TYPE_EARTH), false),
+        Pair(Data(9,"Mars", "Mars des", TYPE_MARS), false)
     )
 
 
@@ -41,7 +43,7 @@ class RecyclerFragment : Fragment(), OnListItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = RecyclerFragmentAdapter(this)
+        adapter = RecyclerFragmentAdapter(list,this)
         adapter.setList(list)
         binding.recyclerView.adapter = adapter
 
@@ -49,14 +51,42 @@ class RecyclerFragment : Fragment(), OnListItemClickListener {
             onAddBtnClick(1)
         }
         ItemTouchHelper(ItemTouchHelperCallback(adapter)).attachToRecyclerView(binding.recyclerView)
+
+        binding.recyclerActivityDiffUtilFAB.setOnClickListener {
+            changeAdapterData()
+        }
     }
 
-    override fun onItemClick(data: Data) {
+    private fun changeAdapterData() {
+        adapter.setList(createItemList(isNewList).map { it })
+        isNewList = !isNewList
+    }
 
+    private fun createItemList(instanceNumber: Boolean): List<Pair<Data, Boolean>> {
+        return when (instanceNumber) {
+            false -> listOf(
+                Pair(Data(0, "Header"), false),
+                Pair(Data(1, "Mars", ""), false),
+                Pair(Data(2, "Mars", ""), false),
+                Pair(Data(3, "Mars", ""), false),
+                Pair(Data(4, "Mars", ""), false),
+                Pair(Data(5, "Mars", ""), false),
+                Pair(Data(6, "Mars", ""), false)
+            )
+            true -> listOf(
+                Pair(Data(0, "Header"), false),
+                Pair(Data(1, "Mars", ""), false),
+                Pair(Data(2, "Jupiter", ""), false),
+                Pair(Data(3, "Mars", ""), false),
+                Pair(Data(4, "Neptune", ""), false),
+                Pair(Data(5, "Saturn", ""), false),
+                Pair(Data(6, "Mars", ""), false)
+            )
+        }
     }
 
     override fun onAddBtnClick(position: Int) {
-        list.add(position, Pair(Data("Mars", "Mars New", TYPE_MARS), false))
+        list.add(position, Pair(Data(0,"Mars", "Mars New", TYPE_MARS), false))
         adapter.setAddToList(list, position)
     }
 

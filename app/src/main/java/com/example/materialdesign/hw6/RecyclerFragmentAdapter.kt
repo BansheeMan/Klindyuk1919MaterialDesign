@@ -4,6 +4,8 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.materialdesign.R
 import com.example.materialdesign.databinding.RecyclerItemEarthBinding
@@ -14,12 +16,16 @@ const val TYPE_EARTH = 1
 const val TYPE_MARS = 2
 const val TYPE_HEADER = 3
 
-class RecyclerFragmentAdapter(private var onListItemClickListener: OnListItemClickListener) :
+class RecyclerFragmentAdapter(
+    private var list: MutableList<Pair<Data, Boolean>>,
+    private var onListItemClickListener: OnListItemClickListener
+) :
     RecyclerView.Adapter<BaseViewHolder>(), ItemTouchHelperAdapter {
 
-    private lateinit var list: MutableList<Pair<Data, Boolean>>
 
     fun setList(newList: List<Pair<Data, Boolean>>) {
+        val result = DiffUtil.calculateDiff(DiffUtilCallback(list,newList))
+        result.dispatchUpdatesTo(this)
         this.list = newList.toMutableList()
     }
 
@@ -77,6 +83,20 @@ class RecyclerFragmentAdapter(private var onListItemClickListener: OnListItemCli
         }
     }
 
+    override fun onBindViewHolder(
+        holder: BaseViewHolder,
+        position: Int,
+        payloads: MutableList<Any>
+    ) {
+        if (payloads.isEmpty()) {
+            super.onBindViewHolder(holder, position, payloads)
+        } else {
+            val res = createCombinedPayload(payloads as List<Change<Pair<Data, Boolean>>>)
+            if(res.oldData.first.someText!=res.newData.first.someText)
+                (holder as MarsViewHolder).itemView.findViewById<TextView>(R.id.title).text =res.newData.first.someText
+        }
+    }
+
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         holder.myBind(list[position])
     }
@@ -85,6 +105,7 @@ class RecyclerFragmentAdapter(private var onListItemClickListener: OnListItemCli
         override fun myBind(listItem: Pair<Data, Boolean>) {
             (RecyclerItemMarsBinding.bind(itemView)).apply {
                 title.text = listItem.first.someText
+                marsImageView.setImageResource(R.drawable.bg_mars)
                 if (list[layoutPosition].first.weight == 1)
                     favorite.setImageResource(R.drawable.favorite) else {
                     favorite.setImageResource(R.drawable.favorite_border)
