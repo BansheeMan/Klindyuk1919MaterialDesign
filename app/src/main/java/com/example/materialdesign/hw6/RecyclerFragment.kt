@@ -106,7 +106,7 @@ class RecyclerFragment : Fragment(), OnListItemClickListener {
         } catch (e: IndexOutOfBoundsException) {
             Toast.makeText(
                 requireContext(),
-                "Вы пытаетесь выйти за рамки массива",
+                "Ддальше никак",
                 Toast.LENGTH_SHORT
             ).show()
         }

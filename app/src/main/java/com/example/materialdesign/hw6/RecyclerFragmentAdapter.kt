@@ -117,10 +117,18 @@ class RecyclerFragmentAdapter(
                     onListItemClickListener.onRemoveBtnClick(layoutPosition)
                 }
                 moveItemDown.setOnClickListener {
-                    onListItemClickListener.onMoveBtnClick(layoutPosition, layoutPosition + 1)
+                    if(layoutPosition == itemCount-1) {
+                        onListItemClickListener.onMoveBtnClick(layoutPosition, 1)
+                    } else {
+                        onListItemClickListener.onMoveBtnClick(layoutPosition, layoutPosition + 1)
+                    }
                 }
                 moveItemUp.setOnClickListener {
-                    onListItemClickListener.onMoveBtnClick(layoutPosition, layoutPosition - 1)
+                    if(layoutPosition == 1) {
+                        onListItemClickListener.onMoveBtnClick(layoutPosition, itemCount - 1)
+                    } else {
+                        onListItemClickListener.onMoveBtnClick(layoutPosition, layoutPosition - 1)
+                    }
                 }
                 marsImageView.setOnClickListener {
                     list[layoutPosition] = list[layoutPosition].let {
