@@ -1,12 +1,22 @@
 package com.example.materialdesign.viewviewmodel.nasarequests
 
 import android.content.Intent
+import android.graphics.BlurMaskFilter
 import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableStringBuilder
+import android.text.SpannedString
+import android.text.style.BackgroundColorSpan
+import android.text.style.MaskFilterSpan
+import android.text.style.ScaleXSpan
+import android.text.style.UnderlineSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
+import androidx.core.text.set
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
@@ -41,10 +51,39 @@ class PictureOfTheDayFragment : Fragment() {
         viewModel.getLiveData().observe(viewLifecycleOwner) {
             renderData(it)
         }
-        viewModel.sendRequestPOD(YESTERDAY)
+        // viewModel.sendRequestPOD(TODAY)
         findWiki()
         stateBottomSheetBehavior()
         switchChipGroup()
+        hw7()
+    }
+
+    private fun hw7() {
+        val findWord = "MATERIAL"
+        val a = "MY $findWord DESIGN"
+        val b = "$findWord MY DESIGN"
+        val c = "MY DESIGN $findWord"
+
+        val titleSpanText = c //a //b //c
+
+        val arr = titleSpanText.split(" ")
+        var newStr = ""
+        var position = 0
+        for (item in arr) {
+            newStr += "$item "
+            if (item == findWord) position = newStr.length
+        }
+        val spannableStringBuilder = SpannableStringBuilder(newStr)
+
+        val color = ContextCompat.getColor(requireContext(), android.R.color.holo_blue_dark)
+        spannableStringBuilder.setSpan(BackgroundColorSpan(color), position-1-findWord.length, position, SpannedString.SPAN_EXCLUSIVE_INCLUSIVE)
+        spannableStringBuilder.insert(position, "Surprise ")
+        spannableStringBuilder.setSpan(UnderlineSpan(), 0, spannableStringBuilder.length, SpannedString.SPAN_INCLUSIVE_INCLUSIVE)
+        spannableStringBuilder.setSpan(ScaleXSpan(6f), 0, arr[0].length, SpannedString.SPAN_INCLUSIVE_INCLUSIVE)
+
+        val blurMaskFilter = BlurMaskFilter(1f, BlurMaskFilter.Blur.SOLID)
+        spannableStringBuilder.setSpan(MaskFilterSpan(blurMaskFilter), arr[0].length+1, arr[0].length+1+arr[1].length, SpannedString.SPAN_INCLUSIVE_INCLUSIVE)
+        binding.hackBsl.title.text = spannableStringBuilder.trim()
     }
 
     private fun switchChipGroup() {
@@ -52,7 +91,7 @@ class PictureOfTheDayFragment : Fragment() {
             val chip = group.findViewById<Chip>(position)
             when (chip?.tag) {
                 "chip1" -> {
-                    viewModel.sendRequestPOD(YESTERDAY)
+                    viewModel.sendRequestPOD(TODAY)
                 }
                 "chip2" -> {
                     viewModel.sendRequestPOD(YESTERDAY)
@@ -67,8 +106,9 @@ class PictureOfTheDayFragment : Fragment() {
     private fun stateBottomSheetBehavior() {
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.hackBsl.bottomSheetContainer)
         bottomSheetBehavior.state =
-            BottomSheetBehavior.STATE_HIDDEN //берет стартовую точку от app:behavior_peekHeight в XML
-        bottomSheetBehavior.peekHeight *= 2
+            BottomSheetBehavior.STATE_EXPANDED //берет стартовую точку от app:behavior_peekHeight в XML
+        //bottomSheetBehavior.peekHeight *= 2
+
     }
 
     private fun findWiki() {
@@ -121,6 +161,10 @@ class PictureOfTheDayFragment : Fragment() {
                 }
             }
         }
+        //##########################################################################################
+
+        //##########################################################################################
+        binding.hackBsl.explanation.text = getText(R.string.middle_text)
     }
 
     private fun showAVideoUrl(videoUrl: String) = with(binding) {
