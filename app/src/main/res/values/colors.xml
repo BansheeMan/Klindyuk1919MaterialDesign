@@ -35,5 +35,14 @@
     <color name="yellow">#FFEB3B</color>
     <color name="red">#C52216</color>
 
+    <color name="r">#C52216</color>
+    <color name="o">#FF9800</color>
+    <color name="y">#FFEB3B</color>
+    <color name="g">#4CAF50</color>
+    <color name="b">#00BCD4</color>
+    <color name="db">#112ECF</color>
+    <color name="p">#9C27B0</color>
+
+
 
 </resources>

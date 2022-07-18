@@ -4,13 +4,10 @@ import android.content.Intent
 import android.graphics.BlurMaskFilter
 import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.SpannedString
-import android.text.style.BackgroundColorSpan
-import android.text.style.MaskFilterSpan
-import android.text.style.ScaleXSpan
-import android.text.style.UnderlineSpan
-import android.util.Log
+import android.text.style.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,6 +53,36 @@ class PictureOfTheDayFragment : Fragment() {
         stateBottomSheetBehavior()
         switchChipGroup()
         hw7()
+        hw7Rainbow()
+    }
+
+
+
+    private fun hw7Rainbow() {
+        val arrColor =
+            arrayOf(R.color.r, R.color.o, R.color.y, R.color.g, R.color.b, R.color.db, R.color.p)
+        val myText = getText(R.string.middle_text)
+        val spannableString = SpannableString(myText)
+        spannableString.setSpan(
+            UnderlineSpan(),
+            0,
+            spannableString.length,
+            SpannedString.SPAN_INCLUSIVE_INCLUSIVE
+        )
+        spannableString.setSpan(
+            ScaleXSpan(2f),
+            0,
+            myText.length,
+            SpannedString.SPAN_INCLUSIVE_INCLUSIVE
+        )
+
+        var currentColor = 0
+        for ((ind, elem) in myText.withIndex()) {
+            val color = ContextCompat.getColor(requireContext(), arrColor[currentColor])
+            spannableString.setSpan(ForegroundColorSpan(color), ind, ind+1, SpannedString.SPAN_INCLUSIVE_INCLUSIVE)
+            if (currentColor == arrColor.size-1) currentColor = 0 else currentColor++
+        }
+        binding.hackBsl.explanation.text = spannableString
     }
 
     private fun hw7() {
@@ -76,13 +103,33 @@ class PictureOfTheDayFragment : Fragment() {
         val spannableStringBuilder = SpannableStringBuilder(newStr)
 
         val color = ContextCompat.getColor(requireContext(), android.R.color.holo_blue_dark)
-        spannableStringBuilder.setSpan(BackgroundColorSpan(color), position-1-findWord.length, position, SpannedString.SPAN_EXCLUSIVE_INCLUSIVE)
+        spannableStringBuilder.setSpan(
+            BackgroundColorSpan(color),
+            position - 1 - findWord.length,
+            position,
+            SpannedString.SPAN_EXCLUSIVE_INCLUSIVE
+        )
         spannableStringBuilder.insert(position, "Surprise ")
-        spannableStringBuilder.setSpan(UnderlineSpan(), 0, spannableStringBuilder.length, SpannedString.SPAN_INCLUSIVE_INCLUSIVE)
-        spannableStringBuilder.setSpan(ScaleXSpan(6f), 0, arr[0].length, SpannedString.SPAN_INCLUSIVE_INCLUSIVE)
+        spannableStringBuilder.setSpan(
+            UnderlineSpan(),
+            0,
+            spannableStringBuilder.length,
+            SpannedString.SPAN_INCLUSIVE_INCLUSIVE
+        )
+        spannableStringBuilder.setSpan(
+            ScaleXSpan(6f),
+            0,
+            arr[0].length,
+            SpannedString.SPAN_INCLUSIVE_INCLUSIVE
+        )
 
         val blurMaskFilter = BlurMaskFilter(1f, BlurMaskFilter.Blur.SOLID)
-        spannableStringBuilder.setSpan(MaskFilterSpan(blurMaskFilter), arr[0].length+1, arr[0].length+1+arr[1].length, SpannedString.SPAN_INCLUSIVE_INCLUSIVE)
+        spannableStringBuilder.setSpan(
+            MaskFilterSpan(blurMaskFilter),
+            arr[0].length + 1,
+            arr[0].length + 1 + arr[1].length,
+            SpannedString.SPAN_INCLUSIVE_INCLUSIVE
+        )
         binding.hackBsl.title.text = spannableStringBuilder.trim()
     }
 
