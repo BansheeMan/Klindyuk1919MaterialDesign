@@ -48,7 +48,7 @@ class PictureOfTheDayFragment : Fragment() {
         viewModel.getLiveData().observe(viewLifecycleOwner) {
             renderData(it)
         }
-        // viewModel.sendRequestPOD(TODAY)
+        viewModel.sendRequestPOD(TODAY)
         findWiki()
         stateBottomSheetBehavior()
         switchChipGroup()
@@ -153,8 +153,8 @@ class PictureOfTheDayFragment : Fragment() {
     private fun stateBottomSheetBehavior() {
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.hackBsl.bottomSheetContainer)
         bottomSheetBehavior.state =
-            BottomSheetBehavior.STATE_EXPANDED //берет стартовую точку от app:behavior_peekHeight в XML
-        //bottomSheetBehavior.peekHeight *= 2
+            BottomSheetBehavior.STATE_COLLAPSED //берет стартовую точку от app:behavior_peekHeight в XML
+        bottomSheetBehavior.peekHeight *= 2
 
     }
 

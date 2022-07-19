@@ -1,6 +1,11 @@
 package com.example.materialdesign.viewviewmodel.mainactivity
 
+import android.content.Intent
+import android.opengl.Visibility
 import android.os.Bundle
+import android.os.Handler
+import android.view.View
+import android.widget.ImageView
 import com.example.materialdesign.R
 import com.example.materialdesign.databinding.ActivityMainBinding
 import com.example.materialdesign.hw3.Les3VPFragment
@@ -19,6 +24,12 @@ class MainActivity : ThemesChanger() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
+
+        findViewById<ImageView>(R.id.imageView).animate().rotationBy(720f).setDuration(6000).start()
+        Handler(mainLooper).postDelayed({
+            binding.splashScreen.visibility = View.INVISIBLE
+        }, 4000)
+
         if (savedInstanceState != null) {
             currentItem = savedInstanceState.getInt(BUNDLE_KEY_BN)
         }
